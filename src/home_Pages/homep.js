@@ -1,13 +1,28 @@
-import React from "react";
-// import { useState } from "react";
+import React, { useState } from "react";
+import SignupForm  from "../form/signup";
+
+
 
 const HomePage = () => {
+  const[abc, setAbc]=useState(false);
+  
+  const signme =()=>{
+    console.log("inside fn");
+    setAbc(true);
+  }
+  if(abc){
+    return <SignupForm />
+    setAbc(false);
+  }
+
   return (
-    <div className="Home">
-      <title>
-        <h2>Welcome To APp</h2>
-      </title>
-      <div class="sidebar">
+    <div className="homecontainer">
+      {/* <title>
+        <h2>Welcome To APP</h2>
+      </title> */}
+      <button onClick={signme}>signin</button>
+
+      {/* <div class="sidebar">
         <div class="sidenav_item">
             Add birthday
         </div>
@@ -20,12 +35,7 @@ const HomePage = () => {
         <div class="sidenav_item">
            Recently
         </div>
-          {/* <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a> */}
-        
-      </div>
+      </div> */}
     </div>
   );
 };

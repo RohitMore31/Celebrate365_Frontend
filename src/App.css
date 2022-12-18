@@ -350,8 +350,17 @@ hr {
 }
 
 /* ============================================ */
-
-#sidebar{
+.homecontainer{
+  /* background: linear-gradient(to right, #88d9fc, #3a99d0); */
+  background:linear-gradient(#808FB0,#9FE2BF);
+  /* background-color: #222; */
+  height: 100vh;
+}
+.homecontainer title{
+  height: 10vh;
+  width: 50vw;
+}
+.sidebar{
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -362,5 +371,17 @@ hr {
   left: 0;
   background-color: rgb(145, 138, 138);
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 50px
+
+}
+.sidenav_item{
+  text-align: center;
+  padding: 2vh;
+  margin: 2vw;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: #3a99d0;
+}
+.sidenav_item:hover{
+  background-color: #DCDCF4;
 }
