@@ -361,6 +361,7 @@ hr {
   width: 50vw;
 }
 .sidebar{
+  text-align: center;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -368,13 +369,14 @@ hr {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: rgb(145, 138, 138);
   overflow-x: hidden;
-  padding-top: 50px
-
+  /* padding-top: 50px; */
+  padding: 20px;
 }
-.sidenav_item{
+
+/* .sidenav_item{
   text-align: center;
   padding: 2vh;
   margin: 2vw;
@@ -384,4 +386,10 @@ hr {
 }
 .sidenav_item:hover{
   background-color: #DCDCF4;
+} */
+
+.sidebar a{
+  text-decoration: none;
+  margin: 20px 0px;
+  font-size: 3rem;
 }

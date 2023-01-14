@@ -14,19 +14,22 @@ const HomePage = () => {
     return <SignupForm />
     setAbc(false);
   }
+  const addPerson=()=>{
+
+  }
 
   return (
     <div className="homecontainer">
-      {/* <title>
+      <div>
         <h2>Welcome To APP</h2>
-      </title> */}
-      <button onClick={signme}>signin</button>
+      </div>
+      <button onClick={signme} className="btn">signin</button>
 
-      {/* <div class="sidebar">
+      <div class="sidebar">
         <div class="sidenav_item">
-            Add birthday
+           <button onClick={addPerson}>Add birthday</button> 
         </div>
-        <div class="sidenav_item">
+         {/*<div class="sidenav_item">
             Show All
         </div>
         <div class="sidenav_item">
@@ -34,8 +37,8 @@ const HomePage = () => {
         </div>
         <div class="sidenav_item">
            Recently
-        </div>
-      </div> */}
+        </div>*/}
+      </div> 
     </div>
   );
 };
