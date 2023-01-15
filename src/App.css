@@ -333,6 +333,12 @@ hr {
   background: linear-gradient(#808fb0, #9fe2bf);
   /* background-color: #222; */
   height: 100vh;
+  position: absolute;
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .product h4 {
   margin-top: 1rem;
@@ -466,6 +472,11 @@ table, th, td {
   
 }
 /* ================================================================ */
-.upcoming{
 
+.upcoming{
+  border: 2px solid black;
+  background-color: white;
+  width: 40vw;
+  height: 20vh;
+  margin: 30px;
 }
