@@ -420,17 +420,19 @@ hr {
 .addnew {
   color: black;
   border: 2px solid black;
-  margin: 10vh;
+  margin: 5vh;
 }
 .slot{
-  padding: 10px;
-  margin: 10px;
+  padding: 8px;
+  /* margin: 10px; */
   font-size: 2em;
 }
 .slot input{
   text-align: center;
-  margin-left:10px ;
-  padding: 8px;
+  /* margin-left:10px ; */
+  padding: 6px;
+  width: 30vw;
+  border-radius: 5px;
 }
 .slot input:hover{
     border-color: #4285F4;
@@ -459,4 +461,11 @@ hr {
 
 table, th, td {
   border: 1px solid;
+}
+.deletefr{
+  
+}
+/* ================================================================ */
+.upcoming{
+
 }

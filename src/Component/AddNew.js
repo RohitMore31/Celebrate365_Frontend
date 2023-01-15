@@ -10,15 +10,15 @@ export default function AddNew() {
     // </>
     <div className="addnew">
       <div className="slot">
-        <label for="uname">First Name</label>
+        <label for="uname">First Name</label><br/>
         <input type="text" id="uname" name="uname"></input>
       </div>
       <div className="slot">
-        <label for="lname">Last Name </label>
+        <label for="lname">Last Name </label><br/>
         <input type="text" id="lname" name="lname"></input>
       </div>
       <div className="slot">
-        <label for="date">Birth Date</label>
+        <label for="date">Birth Date</label><br/>
         <input type="date" id="date" name="date"></input>
       </div>
       <div className="slot">
