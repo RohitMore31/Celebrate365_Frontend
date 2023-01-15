@@ -5,9 +5,9 @@ export default function Navbar() {
   return (
     <aside className="sidebar">
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/contact">Contact</NavLink>
-      <NavLink to="/Add">Add</NavLink>
+      <NavLink to="/addnew">Add New</NavLink>
+      <NavLink to="/showall">Show All</NavLink>
+      <NavLink to="/delete">Delete </NavLink>
     </aside>
 //     <nav>
 //     <Link to="/">Home</Link>

@@ -3,12 +3,14 @@ import { Link,Outlet } from 'react-router-dom'
 import FeactutePr from './FeactutePr'
 import NewPr from './NewPr'
 
-export default function Product() {
+export default function Delete() {
   return (
-    <div>
-       <Link to="feature">feature</Link> 
+    <div className=>
+       {/* <Link to="feature">feature</Link> 
        <Link to="new">feature</Link>
-       <Outlet />
+       inside delete 
+       <Outlet /> */}
+       
     </div>
   )
 }

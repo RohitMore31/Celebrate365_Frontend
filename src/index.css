@@ -12,16 +12,7 @@ code {
     monospace;
 }
 
-.xyz{
-  width: 75vw;
-  background-color: rgb(166, 152, 152);
-  float: left;
-  height: 100vh;
-}
-
-.AllRoutes{
-  color: white;
-  text-align: center;
-  font-size: 2em;
+#root{
+  width: 70vw;
 }
 
