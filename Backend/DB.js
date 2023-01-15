@@ -4,7 +4,7 @@ const pool = mysql2.createPool({
     host: '0.0.0.0',
     user: 'root',
     password:'root',
-    database: 'ecommerce',
+    database: 'bday',
     port:3306,
     waitForConnections: true,
     connectionLimit: 10,

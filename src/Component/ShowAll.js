@@ -1,13 +1,15 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 export default function ShowAll() {
-      let s =useSelector((state)=>{state.mylist})
+      // let s =useSelector((state)=>{state.mylist})
     const[memberlist,setMemberlist]=useState();
     // direct data usestate made taklay ajun hook made nay takla
 
   useEffect(()=>{
-      axios.get("localhost:4000/product").then((response)=>{
+    console.log("component created");
+      axios.get("localhost:4000/showall").then((response)=>{
         console.log("getting response..",response.data)
        setMemberlist(response.data)         
     })
