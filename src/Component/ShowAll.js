@@ -9,22 +9,22 @@ export default function ShowAll() {
 
   useEffect(()=>{
     console.log("component created");
-      axios.get("localhost:4000/showall").then((response)=>{
+      axios.get("http://localhost:4000/showall").then((response)=>{
         console.log("getting response..",response.data)
-       setMemberlist(response.data)         
+        console.log(response.data[0].fname);
+        console.log(response.data[0].lname);
+        setMemberlist(response.data);
+        console.log(memberlist);
     })
   },[])
 
-//   useEffect(()=>{
-//     axios.get("./shopstock.json")
-//     .then((response)=>{
-//         console.log("getting response..",response.data)
-//        setAI(response.data)         
-//     })
-// },[])
 
+  let dataintb;
   function handler(){
-
+    console.log("inside a handler ");
+    // let alldata = memberlist;
+    // console.log(alldata.data.first_name);
+    // dataintb = alldata.map((x)=><td>{x.first_name}</td>)
   }
 
   return (
@@ -34,15 +34,15 @@ export default function ShowAll() {
       <div className='tableparent'>
         <table>
           <tr>
-            <th>No</th>
+            {/* <th>No</th> */}
             <th>Name</th>
-            <th>LastName</th>
+            {/* <th>LastName</th>
             <th>Date</th>
             <th>Edit</th>
-            <th>Delete</th>
+            <th>Delete</th> */}
           </tr>
           <tr>
-            {}
+            {dataintb}
           </tr>
         </table>
       </div>

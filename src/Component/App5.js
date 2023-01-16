@@ -19,11 +19,11 @@ import store from "./MyStore";
 export default function () {
   return (
     <div className="leftside">
-      <BrowserRouter>
-        <Navbar />
-        <div className="AllRoutes">
-          <Routes>
-            <Provider store={store}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Navbar />
+          <div className="AllRoutes">
+            <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/addnew" element={<AddNew />}></Route>
               <Route path="/showall" element={<ShowAll />}></Route>
@@ -33,10 +33,10 @@ export default function () {
               <Route path="/add/new" element={<NewPr />}></Route> */}
               </Route>
               <Route path="*" element={<Nomatch />}></Route>
-            </Provider>
-          </Routes>
-        </div>
-      </BrowserRouter>
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }
