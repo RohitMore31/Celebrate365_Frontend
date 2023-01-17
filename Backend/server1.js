@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors())
-// app.use(cors())
+// app.use(cors())clapp.use(cors())
  
 app.use(bodyParser.json());
 

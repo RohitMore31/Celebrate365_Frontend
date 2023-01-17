@@ -1,11 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function ShowAll() {
-      // let s =useSelector((state)=>{state.mylist})
-    const[memberlist,setMemberlist]=useState();
-    // direct data usestate made taklay ajun hook made nay takla
+      // let s =useSelector((state)=>{return state.mylist})
+      let d = useDispatch()    
+      const[memberlist,setMemberlist]=useState();
+      const[dataintb,setDataintb]=useState("");
+      let data1 = memberlist;
+      d({type:"add"},{data:data1});
+      // console.log(memberlist);
+      // console.log(s);
 
   useEffect(()=>{
     console.log("component created");
@@ -14,17 +19,16 @@ export default function ShowAll() {
         console.log(response.data[0].fname);
         console.log(response.data[0].lname);
         setMemberlist(response.data);
-        console.log(memberlist);
-    })
-  },[])
-
-
-  let dataintb;
+      })
+    },[])
+  // let dataintb;
   function handler(){
     console.log("inside a handler ");
-    // let alldata = memberlist;
+    let alldata = memberlist;
     // console.log(alldata.data.first_name);
-    // dataintb = alldata.map((x)=><td>{x.first_name}</td>)
+   let dataintb1 = alldata.map((x)=>(<td>{x.fname}</td>))
+    setDataintb(dataintb1)
+   
   }
 
   return (

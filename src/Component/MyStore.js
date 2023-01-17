@@ -2,25 +2,25 @@
 import { configureStore } from '@reduxjs/toolkit'
 //let x = require("@reduxjs/toolkit")
 
-const counterReducer = (state={counter:0,mylist:[]},action)=>{
+const counterReducer = (state={mylist:[]},action)=>{
 
-    console.log("here..")
-    if(action.type==="increment")
-    {     
-        return {...state ,counter : state.counter+1 };
-    }
-    if(action.type==="decrement")
-    {
+    // console.log("here..")
+    // if(action.type==="increment")
+    // {     
+    //     return {...state ,counter : state.counter+1 };
+    // }
+    // if(action.type==="decrement")
+    // {
         
-        return { ...state,counter: state.counter -1};
-    }
+    //     return { ...state,counter: state.counter -1};
+    // }
     if(action.type === "add")
     {
         let temp = [...state.mylist]
         temp.push(action.data)
         return {...state,mylist:temp}
     }
-    return {counter:0,mylist:[]}
+    return {mylist:[]}
 } 
 
 //const store = x.configureStore({
