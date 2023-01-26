@@ -12,5 +12,6 @@ code {
     monospace;
 }
 
-
-
+.container{
+  width: 50%;
+}
