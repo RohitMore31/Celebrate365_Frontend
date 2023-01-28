@@ -175,7 +175,7 @@ Global Styles
   gap: 2rem;
 }
 
-/* =================================================== */
+/* =================MEDIA_QUERY========================== */
 @media screen and (min-width: 576px) {
   .products {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,10 +193,9 @@ Global Styles
   height: 15rem;
   object-fit: cover;
 }
+/* ==================HOME_CONTAINER========================== */
 .homecontainer {
-  /* background: linear-gradient(to right, #88d9fc, #3a99d0); */
   background: linear-gradient(#808fb0, #9fe2bf);
-  /* background-color: #222; */
   height: 100vh;
   position: absolute;
   width: 75vw;
@@ -205,6 +204,37 @@ Global Styles
   align-items: center;
   flex-direction: column;
 }
+/* ====================HOME_CONTAINER_TABLE================ */
+.container{
+  /* border: 2px solid red; */
+  padding: 10px;
+  margin: 40px;
+}
+.container h2{
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5rem;
+  padding: 10px;
+  margin: 10px;
+} 
+.homeicons{
+  margin: 0 1.5vw;
+}
+
+/* =====================Home PAge Title================ */
+.hometitle{
+  padding: 10px;
+}
+
+.hometitle h1{
+  font-family: 'DynaPuff', cursive;
+  color: white;
+  font-size: 9vw;
+}
+.hometitle p{
+  font-family: 'Caveat', cursive;
+}
+
+
 .product h4 {
   margin-top: 1rem;
 }

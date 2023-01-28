@@ -19,7 +19,7 @@ export default function HomeUpcoming(props) {
     console.log(upcomingBdayData);
   }
   return (
-    <div className="upcoming">
+    <div className="container">
       <h2>Upcomming..........</h2>
       <table className="table table-dark table-striped">
         <thead>

@@ -19,7 +19,7 @@ export default function HomeRecent(props) {
 
   return (
     recentlyDoneData!=0?
-    <div className="upcoming">
+    <div className="container">
       <h2>Recently Done!!!!!</h2>
       <table className="table table-dark table-striped">
         <thead>
