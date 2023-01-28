@@ -6,13 +6,17 @@ const app = express();
 
 app.use(cors())
 // app.use(cors())clapp.use(cors())
- 
+
 app.use(bodyParser.json());
 
 const showallroutes = require('./Routes/showallroutes');
 const addnewroutes = require('./Routes/addnewroutes');
 const deleteroutes = require('./Routes/deleteroutes');
+const showbyname = require('./Routes/showbyname');
+const deletebyid = require('./Routes/deletebyid');
 
+app.use(deletebyid);
+app.use(showbyname);
 app.use(deleteroutes);
 app.use(addnewroutes);
 app.use(showallroutes);
