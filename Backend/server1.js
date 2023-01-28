@@ -9,11 +9,12 @@ app.use(cors())
  
 app.use(bodyParser.json());
 
-// importing routes
-// const userroute = require('./allrouters/userroute')
 const showallroutes = require('./Routes/showallroutes');
+const addnewroutes = require('./Routes/addnewroutes');
+const deleteroutes = require('./Routes/deleteroutes');
 
-// app.use(userroute);
+app.use(deleteroutes);
+app.use(addnewroutes);
 app.use(showallroutes);
 
 app.listen(4000, '0.0.0.0',()=>{
