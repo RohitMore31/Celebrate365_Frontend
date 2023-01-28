@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import FeactutePr from "./FeactutePr";
 import NewPr from "./NewPr";
+import Update from "./Update";
 
 export default function Delete() {
   const [memberlist, setMemberlist] = useState();
   const [deleteName,setDeleteName] =useState();
+  const [updateData,setUpdateData]=useState();
+  const [status,setStatus]=useState(false);
 
   function handler() {
     let jsonInput={
@@ -21,11 +24,27 @@ export default function Delete() {
     });
   }
 
+  let handleUpdate = (id,index) => {
+    console.log("index="+index);
+    console.log(memberlist[index]);
+    setUpdateData(memberlist[index]); 
+    setStatus(true);
+  }
+  let statusCheker =(temp)=>{
+    console.log("temp values in side parent="+temp);
+    if(!temp){
+      setStatus(false);
+    }
+  }
+
   let handleDelete = (id,index) => {
     console.log("index="+id);
+    console.log(memberlist[id]);
+    setUpdateData(memberlist[id]);
     let jsonInput={
       id:id,
     }
+
     let memberlist1 = [...memberlist];
     memberlist1.splice(index, 1);
     console.log(memberlist1);
@@ -60,8 +79,9 @@ export default function Delete() {
                 <th>Id</th>
                 <th>Fname</th>
                 <th>Lname</th>
-                <th>Actions</th>
-                <th>Actions</th>
+                <th>Dob</th>
+                <th>Delete</th>
+                <th>update</th>
               </tr>
             </thead>
             <tbody>
@@ -75,12 +95,16 @@ export default function Delete() {
                   <td>
                     <button onClick={() => handleDelete(member.id,index)}>Delete</button>
                   </td>
+                  <td>
+                    <button onClick={() => handleUpdate(member.id,index)}>Delete</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+      {status?<Update data={updateData} handler={statusCheker} ></Update>:""}
     </div>
   );
 }

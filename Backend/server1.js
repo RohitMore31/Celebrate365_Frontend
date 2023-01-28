@@ -14,7 +14,9 @@ const addnewroutes = require('./Routes/addnewroutes');
 const deleteroutes = require('./Routes/deleteroutes');
 const showbyname = require('./Routes/showbyname');
 const deletebyid = require('./Routes/deletebyid');
+const updatem = require('./Routes/updatem');
 
+app.use(updatem);
 app.use(deletebyid);
 app.use(showbyname);
 app.use(deleteroutes);
