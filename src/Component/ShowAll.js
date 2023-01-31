@@ -33,14 +33,14 @@ export default function ShowAll() {
       <h3>Friend List</h3>
       <button onClick={handler} className="btn">Show All</button>
       <div className= "container mt-3" >
-      <table className="table table-dark table-striped" >
+      {memberlist!=null?<table className="table table-dark table-striped" >
           <thead>
             <tr>
               <th>Id</th>
               <th>Fname</th>
               <th>Lname</th>
-              <th>Actions</th>
-              <th>Actions</th>
+              <th>Bdate</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -51,13 +51,11 @@ export default function ShowAll() {
                 <td>{member.fname}</td>
                 <td>{member.lname}</td>
                 <td>{member.dob}</td>
-                <td>
-                  <button onClick={() => handleDelete(index)} >Delete</button>
-                </td>
+    
               </tr>
             ))}
           </tbody>
-        </table>
+        </table>:""}
       </div>
     </div>
   );

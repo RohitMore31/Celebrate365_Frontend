@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 export default function Update(props) {
     let p = props.data;
+    let statusCheker = props.handler
     let addHandler=(e)=>{
         e.preventDefault();
         console.log(e);
@@ -20,13 +21,15 @@ export default function Update(props) {
         axios.put("http://localhost:4000/updatem",jsonInput).then((resp)=>{
         console.log(resp); 
     })
-        let statusCheker = props.handler
+        statusCheker(false);
+    }
+    let cancelHandler=()=>{
         statusCheker(false);
     }
 
   return (
     <div className="Addnew">
-       <h3 className="title-form-control">Add New Friend !!!!!</h3> 
+       <h3 className="title-form-control">Update Friend Info !!!!!</h3> 
       <form className="form" onSubmit={addHandler} >
         <div>
           <label for="uname">First Name</label>
@@ -50,7 +53,7 @@ export default function Update(props) {
         </div>
         <div>
           <button className="btn" type="submit">update</button>
-          <button className="btn" type="submit">cancel</button>
+          <button className="btn" onClick={cancelHandler}>cancel</button>
         </div>
       </form>
     </div>

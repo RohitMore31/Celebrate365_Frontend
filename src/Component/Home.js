@@ -5,17 +5,14 @@ import HomeUpcoming from "./HomeUpcoming";
 
 export default function Home() {
   const [memberlist, setMemberlist] = useState(null);
-  // const [upcoming, setUpcoming] = useState();
-  // const [recently, setRecently] = useState();
 
   React.useEffect(() => {
     console.log("inside a handler in home Page ");
     axios.get("http://localhost:4000/showall").then((response) => {
       setMemberlist(response.data);
-      // console.log("completeddddddd");
     });
   }, []);
-  // console.log(memberlist);
+
   let x = 10;
   console.log(x);
 
@@ -26,6 +23,7 @@ export default function Home() {
         <p>Are you know bithday of your friend ? don't Worry</p>
       </div>
       <HomeUpcoming alldata={memberlist} ></HomeUpcoming>
+      <hr/>
       <HomeRecent alldata={memberlist}></HomeRecent>
     </div>
   );

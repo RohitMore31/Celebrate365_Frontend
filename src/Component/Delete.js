@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import FeactutePr from "./FeactutePr";
 import NewPr from "./NewPr";
 import Update from "./Update";
 
 export default function Delete() {
-  const [memberlist, setMemberlist] = useState();
+  const [memberlist, setMemberlist] = useState(null);
   const [deleteName,setDeleteName] =useState();
   const [updateData,setUpdateData]=useState();
   const [status,setStatus]=useState(false);
@@ -70,7 +69,7 @@ export default function Delete() {
       </div>
 
       {/* data is comming then shwo it */}
-      <div className="showall">
+      {memberlist!=null?<div className="deleteById">
         <h3>Friend List</h3>
         <div className="container mt-3">
           <table className="table table-dark table-striped">
@@ -93,17 +92,17 @@ export default function Delete() {
                   <td>{member.lname}</td>
                   <td>{member.dob}</td>
                   <td>
-                    <button onClick={() => handleDelete(member.id,index)}>Delete</button>
+                    <button onClick={() => handleDelete(member.id,index)} className="btn">Delete</button>
                   </td>
                   <td>
-                    <button onClick={() => handleUpdate(member.id,index)}>Delete</button>
+                    <button onClick={() => handleUpdate(member.id,index)} className="btn">Update</button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </div>
+      </div>:""}
       {status?<Update data={updateData} handler={statusCheker} ></Update>:""}
     </div>
   );

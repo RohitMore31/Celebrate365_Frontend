@@ -226,9 +226,12 @@ Global Styles
 }
 /* ====================HOME_CONTAINER_TABLE================ */
 .container{
-  border: 2px solid red;
-  padding: 1vw;
-  /* margin: 10vh; */
+    /* border: 2px solid red; */
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .container h2{
   font-family: 'Roboto Slab', serif;
@@ -288,9 +291,14 @@ Global Styles
 /* ====================================================== */
 /* =====================ShowALLL======================*/
 .showall{
+  font-family: 'DynaPuff', cursive;
   padding-top: 3vh;
   background-color: #dce7f7;
   height: 100vh;
+} 
+.deletById{
+  padding-top: 3vh;
+  background-color: #dce7f7;
 } 
 /* ========================================================== */
 
@@ -434,7 +442,8 @@ label {
 } */
 
 hr {
-  border: 0.3px solid #f1f1f1;
+  border: 2px solid #080808;
+  width: 60vw;
 }
 
 .form button {
@@ -448,4 +457,64 @@ hr {
   text-transform: capitalize;
   border-radius: var(--radius);
   cursor: pointer;
+  text-transform: capitalize;
+}
+
+/* ===========================HOMECONTAINER================== */
+
+.mycontainer{
+  text-align: center;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  font-size: 1.5vw;
+  padding: 1vw 2vw;
+  margin: 1.5vw 0;
+  background-color: #dce7f7;
+  border-radius: 10px;
+  width: 40vw;
+}
+.mycontainer:hover {
+  background: var(--clr-primary-1);
+  /* color: var(--clr-primary-5); */
+  color: wheat;
+}
+.imgbox{
+  border-radius: 5px;
+  padding: 0 2vw;
+}
+.imgbox img{
+    width:12vw;
+    /* height:12vw; */
+    border-radius: 10px;
+}
+.nonimgbox{
+  float: left;
+  padding: 2px;
+  margin: 0 4vw;
+  text-align: initial;
+  flex-direction: column;
+}
+
+.fullname{
+  /* background-color: blueviolet; */
+  display: flex;
+}
+
+.emailbox{
+  /* background-color: rgb(88, 112, 73); */
+}
+.datebox{
+  /* background-color: rgb(226, 43, 131); */
+}
+
+.firstnamebox{
+  /* background-color: white;
+  border: 2px solid black; */
+  width: 7vw;
+}
+.lastnamebox{
+  /* background-color: white;
+  border: 2px solid black; */
+  /* width: 10vw; */
 }
