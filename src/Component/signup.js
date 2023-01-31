@@ -16,13 +16,12 @@ const SignUp = () => {
 
     let jsonInput = {
       fname: uname,
-      lname: lname,
       email: email,
       password: pass,
     };
     console.log(jsonInput.email);
     if(pass === rpass){
-    axios.post("http://localhost:4000/Signup", jsonInput).then((resp) => {
+    axios.post("http://localhost:4000/user/signup", jsonInput).then((resp) => {
       console.log(resp);
     });
     }
@@ -43,39 +42,7 @@ const SignUp = () => {
     return false;
   };
   return (
-    // <form onClick={chandleForm} classNameName="form">
-    //   <div classNameName="title-form-control">
-    //     <h2>Signup</h2>
-    //   </div>
-    //   <hr></hr>
-    //   <div classNameName="form-control">
-    //     <label>Email : </label>
-    //     <input type="text" name="uemail" id="uemail"
-    //     value={uname}
-    //     onChange={(e)=>Setuname(e.target.value)}
-    //     />
-    //   </div>
-    //   <div classNameName="form-control">
-    //     <label>Password : </label>
-    //     <input type="text" name="upassword" id="upassword"
-    //      value={password}
-    //      onChange={(e)=>Setpassword(e.target.value)}
-    //      ></input>
-    //   </div>
-    //   <div classNameName="form-control">
-    //     <label>Confirm Password : </label>
-    //     <input type="text" name="confpassword" id="upassword"
-    //      value={confpassword}
-    //      onChange={(e)=>Setconfpassword(e.target.value)}
-    //      ></input>
-    //   </div>
-    //   <div classNameName="form-control">
-    //     <button type="submit" id="btn">
-    //       submit
-    //     </button>
-    //   </div>
-    // </form>
-
+  
     <section className="vh-75" style={{ backgroundColor: "#eee" }}>
       <div className="container h-75">
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -189,3 +156,37 @@ const SignUp = () => {
   );
 };
 export default SignUp;
+
+
+// <form onClick={chandleForm} classNameName="form">
+    //   <div classNameName="title-form-control">
+    //     <h2>Signup</h2>
+    //   </div>
+    //   <hr></hr>
+    //   <div classNameName="form-control">
+    //     <label>Email : </label>
+    //     <input type="text" name="uemail" id="uemail"
+    //     value={uname}
+    //     onChange={(e)=>Setuname(e.target.value)}
+    //     />
+    //   </div>
+    //   <div classNameName="form-control">
+    //     <label>Password : </label>
+    //     <input type="text" name="upassword" id="upassword"
+    //      value={password}
+    //      onChange={(e)=>Setpassword(e.target.value)}
+    //      ></input>
+    //   </div>
+    //   <div classNameName="form-control">
+    //     <label>Confirm Password : </label>
+    //     <input type="text" name="confpassword" id="upassword"
+    //      value={confpassword}
+    //      onChange={(e)=>Setconfpassword(e.target.value)}
+    //      ></input>
+    //   </div>
+    //   <div classNameName="form-control">
+    //     <button type="submit" id="btn">
+    //       submit
+    //     </button>
+    //   </div>
+    // </form>
