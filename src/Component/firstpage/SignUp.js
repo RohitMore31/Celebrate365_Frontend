@@ -106,7 +106,7 @@ const SignUp = () => {
                             className="form-control"
                             placeholder="Repeat your password"
                           />
-                        {/* </div> */}
+              
                       </div>
 
                       {/* <input

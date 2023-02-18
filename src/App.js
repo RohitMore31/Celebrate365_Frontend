@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 import App5 from './Component/App5';
 import FirstPage from './Component/firstpage/FirstPage';
@@ -6,10 +8,12 @@ import HomePage from './home_Pages/homep';
 
 
 function App() {
+  const [signInStatus,setSignInStatus]=useState(false)
+  let data = useSelector((state)=>state.userInfo.activeStatus)
+  console.log("inside a App.js" ,data);
   return (
     <div className="App">
-      <FirstPage />
-      {/* <App5 /> */}
+      {signInStatus ? <App5 /> : <FirstPage />}
     </div>
   );
 }
