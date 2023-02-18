@@ -9,12 +9,12 @@ export default function Navbar() {
   return (
     <aside className="sidebar">
       <NavLink to="/"> <FaHome className="homeicons"></FaHome>Home</NavLink>
-      <NavLink to="/userprofile"><IoMdPersonAdd className="homeicons"></IoMdPersonAdd> UserProfile</NavLink>
+      <NavLink to="/userprofile">UserProfile</NavLink>
       <NavLink to="/addnew"><IoMdPersonAdd className="homeicons"></IoMdPersonAdd> Add New</NavLink>
       <NavLink to="/showall"><BsCardChecklist className="homeicons"> </BsCardChecklist>Show All</NavLink>
       <NavLink to="/delete"> <MdUpdate className="homeicons"></MdUpdate>Update</NavLink>
-      <NavLink to="/delete"> <MdUpdate className="homeicons"></MdUpdate>AboutUs</NavLink>
-      <NavLink to="/delete"> <MdUpdate className="homeicons"></MdUpdate>ContactUs</NavLink>
+      <NavLink to="/aboutus"> <MdUpdate className="homeicons"></MdUpdate>AboutUs</NavLink>
+      {/* <NavLink to="/delete"> <MdUpdate className="homeicons"></MdUpdate>ContactUs</NavLink> */}
     </aside>
   );
 }

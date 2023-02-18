@@ -375,7 +375,10 @@ table, th, td {
   width: 70vw;
 }
 
-
+/* ===============================Userprofile======================= */
+.userprofile h2{
+  padding: 31px;
+}
 
 
 
@@ -513,8 +516,26 @@ hr {
   border: 2px solid black; */
   width: 7vw;
 }
-.lastnamebox{
-  /* background-color: white;
-  border: 2px solid black; */
-  /* width: 10vw; */
+
+.firstpage{
+  background: linear-gradient(#808fb0, #9fe2bf);
+  text-align: center;
+  height: 100vh;
+}
+.headercomponent{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* .signup{
+  display: flex;
+  margin: 2vh;
+  justify-content: center;
+} */
+
+.signin{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  width: 70vw;
+  margin: 2vh auto;
 }

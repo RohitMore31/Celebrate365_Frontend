@@ -14,6 +14,7 @@ import Delete from "./Delete";
 import { Provider } from "react-redux";
 import store from "./MyStore";
 import UserProfile from "./UserProfile";
+import AboutUs from "./AboutUs";
 // import Navbar from "./Navbar";
 
 export default function () {
@@ -27,11 +28,10 @@ export default function () {
               <Route path="/" element={<Home />}></Route>
               <Route path="/addnew" element={<AddNew />}></Route>
               <Route path="/showall" element={<ShowAll />}></Route>
+              <Route path="/userprofile" element={<UserProfile />}></Route>
               <Route path="/moreabout" element={<Read_More />}></Route>
               <Route path="/delete" element={<Delete />}></Route>
-              <Route path="/userprofile" element={<UserProfile />}></Route>
-              {/*  <Route path="/add/new" element={<NewPr />}></Route> */}
-              
+              <Route path="/aboutus" element={<AboutUs />}></Route>
               <Route path="*" element={<Nomatch />}></Route>
             </Routes>
           </div>

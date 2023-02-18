@@ -15,6 +15,7 @@ const deleteroutes = require('./Routes/deleteroutes');
 const showbyname = require('./Routes/showbyname');
 const deletebyid = require('./Routes/deletebyid');
 const updatem = require('./Routes/updatem');
+const userroutes = require('./Routes/user_routes');
 
 app.use(updatem);
 app.use(deletebyid);
@@ -22,6 +23,7 @@ app.use(showbyname);
 app.use(deleteroutes);
 app.use(addnewroutes);
 app.use(showallroutes);
+app.use(userroutes);
 
 app.listen(4000, '0.0.0.0',()=>{
     console.log('server started on port 4000 successfully');

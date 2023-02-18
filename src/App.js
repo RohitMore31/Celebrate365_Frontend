@@ -1,5 +1,6 @@
 import './App.css';
 import App5 from './Component/App5';
+import FirstPage from './Component/firstpage/FirstPage';
 import SignupForm from './form/signup';
 import HomePage from './home_Pages/homep';
 
@@ -7,9 +8,8 @@ import HomePage from './home_Pages/homep';
 function App() {
   return (
     <div className="App">
-      {/* <HomePage />; */}
-      {/* <SignupForm />; */}
-      <App5 />
+      <FirstPage />
+      {/* <App5 /> */}
     </div>
   );
 }
