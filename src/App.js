@@ -8,9 +8,8 @@ import HomePage from './home_Pages/homep';
 
 
 function App() {
-  const [signInStatus,setSignInStatus]=useState(false)
-  let data = useSelector((state)=>state.userInfo.activeStatus)
-  console.log("inside a App.js" ,data);
+  let signInStatus = useSelector((state)=>state.userInfo.activeStatus)
+  console.log("inside a App.js" ,signInStatus);
   return (
     <div className="App">
       {signInStatus ? <App5 /> : <FirstPage />}

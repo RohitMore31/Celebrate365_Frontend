@@ -9,7 +9,7 @@ const router = express.Router();
 // FOR Sign up
 router.post('/user/signup',(req,resp)=>{
     console.log(`req received = ${req.url}`);
-    const {fname,email,password}=req.body;
+    const {email,password}=req.body;
     // encript password  
     const encrptPassword = ''+ crypto.SHA256(`${password}`)
     const statement = `insert into user (fname,email,password) values('${fname}','${email}','${encrptPassword}')`
@@ -36,20 +36,25 @@ router.post('/user/signin',(req,resp)=>{
     const {email,password}=req.body;
     // encript password  
     const encrptPassword = ''+ crypto.SHA256(`${password}`)
-    const statement = `select * from user where email='${email} && password='${encrptPassword}'`
-    console.log("Encrypted pass = ",encrptPassword);
+    const statement = `select * from user where email='${email}' && password='${encrptPassword}'`
+    console.log("statement pass = ",statement);
     db.execute(statement,(error,data)=>{
         const result = {
             Status:''
         }
-
-        if(error){
+        if(error || data.length===0){
             result['Status']="error"
             result['error']=error;
             console.log(result);
         }else{
-            result['Status']="error"
+            result['Status']="sucess"
             result['data']=data;
+            console.log(data.fname);
+            console.log(data.email);
+            console.log(data.uid);
+            console.log(data);
+
+
         }
         resp.send(result);
     })

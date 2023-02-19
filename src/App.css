@@ -539,3 +539,13 @@ hr {
   width: 70vw;
   margin: 2vh auto;
 }
+.userprofile{
+  font-size: 0.5vw;
+}
+.userprofile h2{
+  font-family: 'DynaPuff';
+  color:darkorange ;
+  letter-spacing: var(--spacing);
+  padding-bottom: 0px;
+
+}

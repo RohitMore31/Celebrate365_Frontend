@@ -11,8 +11,8 @@ import Read_More from "./Read_More";
 import AddNew from "./AddNew";
 import ShowAll from "./ShowAll";
 import Delete from "./Delete";
-import { Provider } from "react-redux";
-import store from "./MyStore";
+// import { Provider } from "react-redux";
+// import store from "./MyStore";
 import UserProfile from "./UserProfile";
 import AboutUs from "./AboutUs";
 // import Navbar from "./Navbar";
@@ -20,7 +20,6 @@ import AboutUs from "./AboutUs";
 export default function () {
   return (
     <div className="leftside">
-      <Provider store={store}>
         <BrowserRouter>
           <Navbar />
           <div className="AllRoutes">
@@ -36,7 +35,6 @@ export default function () {
             </Routes>
           </div>
         </BrowserRouter>
-      </Provider>
     </div>
   );
 }

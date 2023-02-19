@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: 0,
   activeStatus:false,
-  UserInfo:[]
+  UserInfo:{fname:"rohit"}
 }
 //createSlice({name:'',intialState:'',reducers:'{actions name : (state)=>{}}')
 export const counterSlice = createSlice({
@@ -20,11 +20,11 @@ export const counterSlice = createSlice({
     },
   
     changeActiveStatus:(state)=>{
-        state.mystatus=true;
+        state.activeStatus=true;
     },
 
     getUserInfo:(state,action)=>{
-        state.UserInfo += action.payload
+        state.UserInfo = action.payload
     }
   },
 })
