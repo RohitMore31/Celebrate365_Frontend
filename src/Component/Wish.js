@@ -11,6 +11,7 @@ export default function Wish() {
 
   let bdaywishHandler = (e) => {
     e.preventDefault();
+    console.log(e);
     let email = e.target[0].value;
     let message = e.target[1].value;
 
@@ -24,7 +25,7 @@ export default function Wish() {
     if(message === null){
       jsonInput.message="Wishing you a very happy birthday have a Great Day"
     }
-      axios.post("http://localhost:4000/bdaywish", jsonInput).then((resp) => {
+      axios.post("http://localhost:4000/user/bdaywish", jsonInput).then((resp) => {
       console.log(resp);
       if(resp.data.Status==="error"){
         console.log("inside error");
@@ -66,14 +67,15 @@ export default function Wish() {
             <div class="card-header">
                 Address
             </div>
+            <form onSubmit={bdaywishHandler}>
             <div class="card-body">
             <div className="row">
-            
-            <div className="col-md-12 p-1"><label className="labels fs-6">Email ID</label><input type="text" className="form-control" placeholder="enter email id" required /></div>
-            <div className="col-md-12 p-1"><label className="labels fs-6">Message</label><input type="text" className="form-control" placeholder="enter message" value="Happy Birthday Dude"/></div>
-            </div>
-                <button class="btn btn-primary" onClick={bdaywishHandler}>Send Email</button>
-            </div>
+                <div className="col-md-12 p-1"><label className="labels fs-6">Email ID</label><input type="text" className="form-control" placeholder="enter email id" required /></div>
+                <div className="col-md-12 p-1"><label className="labels fs-6">Message</label><input type="text" className="form-control" placeholder="enter message" value="Happy Birthday Dude"/></div>
+                </div>
+                    <button class="btn btn-primary" type="submit">Send Email</button>
+                </div>
+            </form>
         </div>
       </div>
       {wishStatus ?<div>{sendEmailInfo}</div>:" "}
