@@ -46,11 +46,12 @@ export default function HomeRecent(props) {
               </div>
               <div className="nonimgbox">
                 <div className="fullname">
-                  <div className="firstnamebox">{member.fname}</div>
-                  <div className="lastnamebox">{member.lname}</div>
+                  <pre className="firstnamebox">{member.fname} {member.lname}</pre>
                 </div>
-                {/* <div className="emailbox">abc@xyz.com</div> */}
-                <div className="datebox">{member.dob}</div>
+                
+                <div className="datebox">
+                  {member.dob}
+                </div>
               </div>
             </div>
           ))}

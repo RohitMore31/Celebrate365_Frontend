@@ -11,11 +11,9 @@ import Read_More from "./Read_More";
 import AddNew from "./AddNew";
 import ShowAll from "./ShowAll";
 import Delete from "./Delete";
-// import { Provider } from "react-redux";
-// import store from "./MyStore";
-import UserProfile from "./UserProfile";
+import UserProfile from "./profile/UserProfile";
 import AboutUs from "./AboutUs";
-// import Navbar from "./Navbar";
+import Wish from "./Wish";
 
 export default function () {
   return (
@@ -31,6 +29,7 @@ export default function () {
               <Route path="/moreabout" element={<Read_More />}></Route>
               <Route path="/delete" element={<Delete />}></Route>
               <Route path="/aboutus" element={<AboutUs />}></Route>
+              <Route path="wishbday" element={<Wish />}></Route>
               <Route path="*" element={<Nomatch />}></Route>
             </Routes>
           </div>

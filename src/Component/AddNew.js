@@ -45,7 +45,7 @@ export default function AddNew() {
         <div>
           <label for="date">Birth Date</label>
           <br />
-          <input type="date" id="date" name="date" value="2013-12-12"></input>
+          <input type="date" id="date" name="date" value=""></input>
         </div>
         <div>
           <button className="btn" type="submit">Submit</button>

@@ -72,8 +72,8 @@ Global Styles
   background: var(--clr-primary-5);
   color: var(--clr-white);
   border-radius: var(--radius);
-  font-size: 1rem;
-  letter-spacing: var(--spacing);
+  font-size: 1.3vw;
+  /* letter-spacing: var(--spacing); */
   margin: 2vh;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -84,6 +84,8 @@ Global Styles
   background: var(--clr-primary-1);
   color: var(--clr-primary-5);
 }
+
+
 /* .item {
   background: var(--clr-white);
   display: flex;
@@ -216,11 +218,10 @@ Global Styles
 /* ==================HOME_CONTAINER========================== */
 .homecontainer {
   background: linear-gradient(#808fb0, #9fe2bf);
-  /* height: 100vh; */
+  height: 100vh;
   position: absolute;
   width: 75vw;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 }
@@ -483,12 +484,12 @@ hr {
   color: wheat;
 }
 .imgbox{
-  border-radius: 5px;
-  padding: 0 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imgbox img{
     width:12vw;
-    /* height:12vw; */
     border-radius: 10px;
 }
 .nonimgbox{
@@ -514,7 +515,7 @@ hr {
 .firstnamebox{
   /* background-color: white;
   border: 2px solid black; */
-  width: 7vw;
+  /* width: 7vw; */
 }
 
 .firstpage{
@@ -548,4 +549,19 @@ hr {
   letter-spacing: var(--spacing);
   padding-bottom: 0px;
 
+}
+.mybutton{
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+  border-radius: var(--radius);
+  border: 2px solid white;
+  padding-left: 0.5vw;  
+  cursor: pointer;
+}
+
+.wishfirstbox{
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }

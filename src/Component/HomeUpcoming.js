@@ -1,4 +1,6 @@
 import React from "react";
+import { TfiEmail } from "react-icons/tfi"
+import { useNavigate } from 'react-router-dom'
 
 export default function HomeUpcoming(props) {
   /* id: 1, fname: 'rohit', lname: 'more', dob: '1998-01-31' */
@@ -18,41 +20,44 @@ export default function HomeUpcoming(props) {
     });
     console.log(upcomingBdayData);
   }
+
+  const Navigate=useNavigate();
+  let wishPageHandler =(index)=>{
+    // console.log(index);
+    Navigate('wishbday',{
+      state: {
+          name: 'Programming Fields',
+          message: 'Message from home component',
+          mydata:upcomingBdayData[index]
+      },
+  })
+  }
+
+
   return (
     <div className="container">
       <h2>Upcomming.....</h2>
-      {/* <table classNameName="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Fname</th>
-            <th>Lname</th>
-            <th>bday</th>
-          </tr>
-        </thead>
-        <tbody> */}
+     
           {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
           {upcomingBdayData?.map((member, index) => (
-            // <tr key={index}>
-            //   <td>{member.id}</td>
-            //   <td>{member.fname}</td>
-            //   <td>{member.lname}</td>
-            //   <td>{member.dob}</td>
-            // </tr>
+         
             <div className="mycontainer">
               <div className="imgbox">
                 <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img>
               </div>
               <div className="nonimgbox">
                 <div className="fullname">
-                  <div className="firstnamebox">{member.fname}</div>
-                  <div className="lastnamebox">{member.lname}</div>
+                  <div className="firstnamebox">{member.fname } {member.lname}</div>
                 </div>
-                {/* <div className="emailbox">abc@xyz.com</div> */}
-                <div className="datebox">{member.dob}</div>
+                <div className="datebox">
+                  {member.dob}
+                </div>
+                <div className="datebox">
+                  <button class="mybutton"onClick={ ()=>wishPageHandler(index) }>Wish <TfiEmail className="homeicons"></TfiEmail></button>
+                </div>
               </div>
             </div>
-          ))},"No Upcomming"
+          ))}:"No Upcomming"
         {/* </tbody>
       </table> */}
     </div>
