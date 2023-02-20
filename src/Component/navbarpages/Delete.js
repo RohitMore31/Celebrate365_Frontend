@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import NewPr from "./NewPr";
 import Update from "./Update";
 
 export default function Delete() {

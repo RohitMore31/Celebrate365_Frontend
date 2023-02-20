@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillPersonCheckFill } from "react-icons/bs"
 
 export default function HomeRecent(props) {
   var recentlyDoneData =null;
@@ -21,32 +22,18 @@ export default function HomeRecent(props) {
     recentlyDoneData!=0?
     <div className="container">
        <h2>Recently Done!!!!!</h2>
-      {/*<table className="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Fname</th>
-            <th>Lname</th>
-            <th>Actions</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody> */}
-          {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
+    
           {recentlyDoneData?.map((member, index) => (
-            // <tr key={index}>
-            //   <td>{member.id}</td>
-            //   <td>{member.fname}</td>
-            //   <td>{member.lname}</td>
-            //   <td>{member.dob}</td>
-            // </tr>
+      
             <div className="mycontainer">
               <div className="imgbox">
-                <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img>
+                {/* <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img> */}
+                {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcjuPIcmTSPT1I9kS6f-FpYzSRjfVkK_gVYQ&usqp=CAU"></img> */}
+               <BsFillPersonCheckFill className=""></BsFillPersonCheckFill> 
               </div>
               <div className="nonimgbox">
                 <div className="fullname">
-                  <pre className="firstnamebox">{member.fname} {member.lname}</pre>
+                  <div className="firstnamebox">{member.fname } { member.lname}</div>
                 </div>
                 
                 <div className="datebox">
@@ -55,9 +42,7 @@ export default function HomeRecent(props) {
               </div>
             </div>
           ))}
-         
-        {/* </tbody>
-      </table> */}
+     
     </div>
     :<h3>No recent records</h3>
   );

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export default function HomeUpcoming(props) {
   /* id: 1, fname: 'rohit', lname: 'more', dob: '1998-01-31' */
   let y = props.alldata;
-  var upcomingBdayData;
+  var upcomingBdayData ;
 
   if (y != null) {
     upcomingBdayData = y.filter((x) => {
@@ -37,13 +37,13 @@ export default function HomeUpcoming(props) {
   return (
     <div className="container">
       <h2>Upcomming.....</h2>
-     
           {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
           {upcomingBdayData?.map((member, index) => (
          
             <div className="mycontainer">
               <div className="imgbox">
-                <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img>
+                {/* <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img> */}
+                <img src="https://media.tenor.com/M-34lT1ySIIAAAAM/hb.gif"></img>
               </div>
               <div className="nonimgbox">
                 <div className="fullname">
@@ -57,9 +57,7 @@ export default function HomeUpcoming(props) {
                 </div>
               </div>
             </div>
-          ))}:"No Upcomming"
-        {/* </tbody>
-      </table> */}
-    </div>
-  );
+          ))}
+        </div>
+      );
 }

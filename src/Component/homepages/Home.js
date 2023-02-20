@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="homecontainer">
       <div className="hometitle"> 
-        <h1>BirthDay </h1>
+        <h1>BirthDay's </h1>
         <p>Are you know bithday of your friend ? don't Worry</p>
       </div>
       <HomeUpcoming alldata={memberlist} ></HomeUpcoming>

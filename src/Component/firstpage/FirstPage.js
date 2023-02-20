@@ -15,7 +15,7 @@ export default function FirstPage() {
     <div>
       { signInBtnStatus ? <div className="firstpage">
       <div className="headercomponent">
-        <button className="btn" onClick={signInBtnStatusHandler}>
+        <button className="btn btnfont" onClick={signInBtnStatusHandler}>
           Register / SignIn
         </button>
       </div>

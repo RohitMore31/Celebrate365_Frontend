@@ -7,7 +7,7 @@ import {BsGithub} from "react-icons/bs"
 
 export default function AboutUs() {
   return (
-    <>
+    <div className='about'>
     <div className="wishfirstbox">
         <h2> AboutUs </h2>
         <div className="card mt-3 " style={{ width: "50vw" }}>
@@ -60,6 +60,6 @@ export default function AboutUs() {
           </div>
       </div>
       
-      </>
+      </div>
   )
 }
