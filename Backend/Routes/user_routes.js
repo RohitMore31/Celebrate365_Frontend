@@ -49,16 +49,46 @@ router.post('/user/signin',(req,resp)=>{
         }else{
             result['Status']="sucess"
             result['data']=data;
-            console.log(data.fname);
-            console.log(data.email);
-            console.log(data.uid);
-            console.log(data);
+            // console.log(data.fname);
+            // console.log(data.email);
+            // console.log(data.uid);
+            // console.log(data);
 
 
         }
         resp.send(result);
     })
 })
+
+
+// router.post('/user/profile/update',(req,resp)=>{
+//     console.log(`req received = ${req.url}`);
+//     const {email,password}=req.body;
+//     // encript password  
+//     const encrptPassword = ''+ crypto.SHA256(`${password}`)
+//     const statement = `select * from user where email='${email}' && password='${encrptPassword}'`
+//     console.log("statement pass = ",statement);
+//     db.execute(statement,(error,data)=>{
+//         const result = {
+//             Status:''
+//         }
+//         if(error || data.length===0){
+//             result['Status']="error"
+//             result['error']=error;
+//             console.log(result);
+//         }else{
+//             result['Status']="sucess"
+//             result['data']=data;
+//             console.log(data.fname);
+//             console.log(data.email);
+//             console.log(data.uid);
+//             console.log(data);
+
+
+//         }
+//         resp.send(result);
+//     })
+// })
 
 
 

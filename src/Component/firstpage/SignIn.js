@@ -46,6 +46,13 @@ export default function SignIn() {
               fname:x.data[0].fname,
               email:x.data[0].email,
               uid:x.data[0].uid,
+              lname:x.data[0].lname,
+              dob:x.data[0].dob,
+              education:x.data[0].education,
+              country:x.data[0].country,
+              state:x.data[0].state,
+              mobile:x.data[0].mobile,
+              address:x.data[0].address
             }
             // console.log(obj);
 
