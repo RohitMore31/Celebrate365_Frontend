@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: 0,
   activeStatus:false,
-  UserInfo:{fname:"rohit"}
+  UserInfo:{fname:"rohit"},
+  updateUtility:{}
 }
 //createSlice({name:'',intialState:'',reducers:'{actions name : (state)=>{}}')
 export const counterSlice = createSlice({
@@ -24,12 +25,17 @@ export const counterSlice = createSlice({
     },
 
     getUserInfo:(state,action)=>{
-        state.UserInfo = action.payload
-    }
+        state.UserInfo = action.payload;
+    },
+
+    setUpdateUtility:(state,action)=>{
+      state.updateUtility =action.payload;
+    },
+
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment,changeActiveStatus,getUserInfo } = counterSlice.actions
+export const { increment,changeActiveStatus,getUserInfo,setUpdateUtility} = counterSlice.actions
 
 export default counterSlice.reducer

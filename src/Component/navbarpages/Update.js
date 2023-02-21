@@ -1,9 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
+
 export default function Update(props) {
     let p = props.data;
-    let statusCheker = props.handler
+    let statusCheker = props.handlers
+
+    const[fname,setFname]= useState(props.data.fname);
+    const[lname,setLname]= useState(props.data.lname);
+    const[email,setEmail]= useState(props.data.email);
+    const[dob,setDob]= useState(props.data.dob);
+
     let addHandler=(e)=>{
         e.preventDefault();
         console.log(e);
@@ -16,6 +23,7 @@ export default function Update(props) {
           fname:uname,
           lname:lname,
           date:date,
+          email:email
         }
         console.log(jsonInput.date);
         axios.put("http://localhost:4000/updatem",jsonInput).then((resp)=>{
@@ -34,22 +42,22 @@ export default function Update(props) {
         <div>
           <label for="uname">First Name</label>
           <br />
-          <input type="text" id="uname" name="uname" value={p.fname}></input>
+          <input type="text" id="uname" name="uname" value={fname} onChange={(e)=>{setFname(e.target.value)}}></input>
         </div>
         <div>
           <label for="lname">Last Name </label>
           <br />
-          <input type="text" id="lname" name="lname" value={p.lname}></input>
+          <input type="text" id="lname" name="lname" value={lname} onChange={(e)=>{setLname(e.target.value)}} ></input>
         </div>
         <div>
           <label for="email">Email</label>
           <br />
-          <input type="email" id="email" name="email" value={p.email}></input>
+          <input type="email" id="email" name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} ></input>
         </div>
         <div>
           <label for="date">Birth Date</label>
           <br />
-          <input type="date" id="date" name="date" value={p.dob} ></input>
+          <input type="date" id="date" name="date" value={dob} onChange={(e)=>{setDob(e.target.value)}}  ></input>
         </div>
         <div>
           <button className="btn" type="submit">update</button>

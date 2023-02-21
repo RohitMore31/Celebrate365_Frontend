@@ -13,7 +13,7 @@ import ShowAll from "./navbarpages/ShowAll";
 import Delete from "./navbarpages/Delete";
 import UserProfile from "./profile/UserProfile";
 import AboutUs from "./aboutuspages/AboutUs";
-import Wish from "./navbarpages/Wish";
+import Wish from "./Wish/Wish";
 
 export default function () {
   return (

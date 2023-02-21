@@ -1,14 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import HomeRecent from "./HomeRecent";
 import HomeUpcoming from "./HomeUpcoming";
 
 export default function Home() {
   const [memberlist, setMemberlist] = useState(null);
-
+  let userData =useSelector((state)=>state.userInfo.UserInfo);
+  let jsonInput = {
+    uid:userData.uid
+  };
+  console.log("inside home",jsonInput.uid);
   React.useEffect(() => {
     console.log("inside a handler in home Page ");
-    axios.get("http://localhost:4000/showall").then((response) => {
+    axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
       setMemberlist(response.data);
     });
   }, []);

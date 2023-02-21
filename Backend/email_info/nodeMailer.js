@@ -11,13 +11,13 @@ function sendmail(to_mail, msg) {
       pass: "olmbarvdtvlioyci",
     },
   });
-  const contents = "";
+  const contents = ""+fs.readFileSync("./mail.html");
 
   const mailOptions = {
     from: "rsmore2232@gmail.com", // sender address
     to: to_mail, // list of receivers
-    subject: "hellow from server", // Subject line
-    // html: contents, // plain text body
+    subject: msg, // Subject line
+    html: contents, // plain text body
   };
 
   // transporter.sendMail(mailOptions, function (err, info) {

@@ -42,7 +42,11 @@ const SignUp = () => {
         console.log("inside sucess ",resp.data.status);
         console.log(registerStatusInfo);
       }
-    });
+    }).catch(error=>{
+     console.log(error.code)
+     setRegisterStatus(true);
+     setRegisterStatusInfo(error.code);
+    })
     }
   };
 

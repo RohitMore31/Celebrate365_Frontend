@@ -8,16 +8,21 @@ router.get("/", (req, resp) => {
 
 router.post("/addnew", (req, resp) => {
   console.log("router is called......inside addnew");
-  const { fname, lname, date } = req.body;
-  console.log(fname);
-  const statement = `insert into bbday(fname,lname,dob) values('${fname}','${lname}','${date}')`;
+  const { fname, lname, date, email, uid } = req.body;
+  const statement = `insert into friend_list(fname,lname,dob,femail,uid) values('${fname}','${lname}','${date}','${email}',${uid})`;
   console.log(statement);
   db.execute(statement, (err, data) => {
-    db.end();
+    const result = {
+      Status: "",
+    };
     if (err) {
-      console.log(err);
-      resp.send("Error");
-    } else resp.send("Added Sucessfully");
+      result["Status"] = "error";
+      result["error"] = error;
+    } else {
+      result["Status"] = "sucess";
+      result["data"] = data;
+    }
+    resp.send(result);
   });
 });
 

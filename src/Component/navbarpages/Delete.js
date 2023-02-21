@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Update from "./Update";
+import { useSelector, useDispatch } from 'react-redux'
+import { increment,changeActiveStatus,getUserInfo,setUpdateUtility } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+
 
 export default function Delete() {
   const [memberlist, setMemberlist] = useState(null);
@@ -9,6 +12,8 @@ export default function Delete() {
   const [updateData,setUpdateData]=useState();
   const [status,setStatus]=useState(false);
 
+  let dispatch = useDispatch();
+  // Search Handler
   function handler() {
     let jsonInput={
       fname:deleteName,
@@ -17,6 +22,7 @@ export default function Delete() {
     console.log("inside a handler ");
     axios.post("http://localhost:4000/showbyname",jsonInput).then((response) => {
       console.log("getting response..", response.data);
+      // put response data in setMemberlist
       setMemberlist(response.data);
       console.log(memberlist);
     });
@@ -26,7 +32,9 @@ export default function Delete() {
     console.log("index="+index);
     console.log(memberlist[index]);
     setUpdateData(memberlist[index]); 
+    dispatch(setUpdateUtility(memberlist[index]));
     setStatus(true);
+    
   }
   let statusCheker =(temp)=>{
     console.log("temp values in side parent="+temp);

@@ -10,7 +10,7 @@ router.post("/deletebyid",(req,resp)=>{
     console.log("router is called......inside deletebyid");
     const {id}=req.body;
     console.log(id);
-    const statement = `delete from bbday where id=${id}`
+    const statement = `delete from friend_list where id=${id}`
     console.log(statement);
     db.execute(statement,(err,data)=>{
        if(err){

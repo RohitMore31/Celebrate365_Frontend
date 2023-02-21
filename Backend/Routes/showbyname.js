@@ -10,7 +10,7 @@ router.post("/showbyname",(req,resp)=>{
     console.log("router is called......inside showbyname");
     const {fname}=req.body;
     console.log(fname);
-    const statement = `select * from bbday where fname='${fname}'`
+    const statement = `select * from friend_list where fname='${fname}'`
     console.log(statement);
     db.execute(statement,(err,data)=>{
        if(err){

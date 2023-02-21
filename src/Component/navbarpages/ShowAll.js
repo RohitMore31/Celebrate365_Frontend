@@ -1,19 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function ShowAll() {
-  // let s =useSelector((state)=>{return state.mylist})
-  // let d = useDispatch()
   const [memberlist, setMemberlist] = useState();
-
-  useEffect(() => {
-    console.log("component created");
-  }, []);
+  let userData =useSelector((state)=>state.userInfo.UserInfo);
+  let jsonInput = {
+    uid:userData.uid
+  };
+ 
 
   function handler() {
-    console.log("inside a handler ");
-    axios.get("http://localhost:4000/showall").then((response) => {
+    axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
       console.log("getting response..", response.data);
       setMemberlist(response.data);
       console.log(memberlist);

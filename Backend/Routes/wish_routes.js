@@ -1,7 +1,7 @@
 const express = require('express')
 const db = require('../db');
 
-const send_the_email = require('../email_info/mail');
+const send_the_email = require('../email_info/nodeMailer');
 
 const router = express.Router();
 

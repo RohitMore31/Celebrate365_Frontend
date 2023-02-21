@@ -48,7 +48,6 @@ export default function SignIn() {
               uid:x.data[0].uid,
               lname:x.data[0].lname,
               dob:x.data[0].dob,
-              education:x.data[0].education,
               country:x.data[0].country,
               state:x.data[0].state,
               mobile:x.data[0].mobile,
@@ -72,12 +71,12 @@ export default function SignIn() {
        <p className="text-center h1 fw-bold mb-4">SignIn</p>
         <form onSubmit={signInHandler}>
           <div className="form-outline mb-4">
-            <input type="email" id="email" name="email" className="form-control" placeholder='Email'/>
+            <input type="email" id="email" name="email" className="form-control" placeholder='Email' required/>
             {/* <label className="form-label" for="form2Example1">Email address</label> */}
           </div>
 
           <div className="form-outline mb-4">
-            <input type="password" id="password" name="password" className="form-control" placeholder='Password' />
+            <input type="password" id="password" name="password" className="form-control" placeholder='Password' required/>
             {/* <label className="form-label" for="form2Example2">Password</label>  */}
           </div>
 

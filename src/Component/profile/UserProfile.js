@@ -1,54 +1,51 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment,changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import { getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 
 export default function UserProfile() {
-  // const [signinStatus,setSigninStatus]=useState();
-  // const dispatch = useDispatch();
   const dispatch = useDispatch();
   let userData =useSelector((state)=>state.userInfo.UserInfo);
-  console.log("inside a signIn.js",userData.fname);
-  console.log("inside a signIn.js",userData.email);
-  console.log("inside a signIn.js",userData.uid);
-  // // get full details of use using uid
-  // let jsonInput = {
-  //   uid: userData.uid,
-  // };
-
+  const [newVal,setNewVal] = useState(userData);
   let profileUpdateHandler=(e)=>{
     let check = window.confirm("Do You WantTo Update");
     if(check){
     e.preventDefault();
     let fname =e.target[0].value;
     let lname = e.target[1].value;
+
     let mobile = e.target[2].value;
-    let address = e.target[4].value;
-    let email = e.target[5].value;
-    let dob = e.target[6].value;
-    let country = e.target[7].value;
-    let state = e.target[8].value;
+    let address = e.target[3].value;
+    let email = e.target[4].value;
+    let dob = e.target[5].value;
+    let country = e.target[6].value;
+    let state = e.target[7].value;
 
     let jsonInput = {
       fname: fname,
       lname:lname,
+
       mobile:mobile,
       address:address,
       email: email,
       dob:dob,
+
       country:country,
       state:state,
-      
+
+      uid:userData.uid
     };
-  axios.post("http://localhost:4000/user/profile/update",jsonInput).then((resp)=>{
-          console.log(resp);
-          if(resp.data.Status==="error"){
-            console.log("inside error");
-          }else if(resp.data.Status==="sucess"){
-            console.log("inside sucess ",resp.data);
-          }
-        }); 
-      } 
+    axios.post("http://localhost:4000/user/profile/update",jsonInput).then((resp)=>{
+      // console.log(resp);
+      if(resp.data.Status==="error"){
+        // console.log("inside error");
+      }else if(resp.data.Status==="sucess"){
+        // console.log("inside sucess ",resp.data);
+          dispatch(getUserInfo(jsonInput));
+        }
+        setNewVal(jsonInput)
+      }); 
+    } 
   }
 
   return (
@@ -70,18 +67,18 @@ export default function UserProfile() {
                   <h4 className="text-right">Profile Settings</h4>
               </div>
               <div className="row mt-2">
-                  <div className="col-md-6"><label className="labels fs-6">Name</label><input type="text" className="form-control" placeholder="first name" value={userData.fname} name="fname"/></div>
-                  <div className="col-md-6"><label className="labels fs-6">Lastname</label><input type="text" className="form-control" value={userData.sname} placeholder="lastname" name="lname"/></div>
+                  <div className="col-md-6"><label className="labels fs-6">Name</label><input type="text" className="form-control" placeholder="first name" value={newVal.fname} name="fname"onChange={(e)=>{setNewVal(e.target.value)}}/></div>
+                  <div className="col-md-6"><label className="labels fs-6">Lastname</label><input type="text" className="form-control" value={newVal.lname} placeholder="lastname" name="lname" onChange={(e)=>{setNewVal(e.target.value)}}/></div>
               </div>
               <div className="row mt-3 ">
-                  <div className="col-md-12 p-1"><label className="labels fs-6">Mobile Number</label><input type="text" className="form-control" placeholder="enter phone number" value={userData.mobile} name="mobile"/></div>
-                  <div className="col-md-12 p-1"><label className="labels fs-6">Address Line 1</label><input type="text" className="form-control" placeholder="enter address" value={userData.address} name="address"/></div>
-                  <div className="col-md-12 p-1"><label className="labels fs-6">Email ID</label><input type="text" className="form-control" placeholder="enter email id" value={userData.email} name="email"/></div>
-                  <div className="col-md-12 p-1"><label className="labels fs-6">birthday</label><input type="date" className="form-control" placeholder="enter birthday" value={userData.dob} name="dob"/></div>
+                  <div className="col-md-12 p-1"><label className="labels fs-6">Mobile Number</label><input type="text" className="form-control" placeholder="enter phone number" value={newVal.mobile} name="mobile" onChange={(e)=>{setNewVal(e.target.value)}}/></div>
+                  <div className="col-md-12 p-1"><label className="labels fs-6">Address Line 1</label><input type="text" className="form-control" placeholder="enter address" value={newVal.address} name="address" onChange={(e)=>{setNewVal(e.target.value)}}/></div>
+                  <div className="col-md-12 p-1"><label className="labels fs-6">Email ID</label><input type="text" className="form-control" placeholder="enter email id" value={newVal.email} name="email" onChange={(e)=>{setNewVal(e.target.value)}}/></div>
+                  <div className="col-md-12 p-1"><label className="labels fs-6">birthday</label><input type="date" className="form-control" placeholder="enter birthday" value={newVal.dob} name="dob" onChange={(e)=>{setNewVal(e.target.value)}}/></div>
               </div>
               <div className="row mt-3">
-                  <div className="col-md-6"><label className="labels fs-6">Country</label><input type="text" className="form-control" placeholder="country" value={userData.country} name="country"/></div>
-                  <div className="col-md-6"><label className="labels fs-6">State</label><input type="text" className="form-control" value={userData.state} placeholder="state" name="state"/></div>
+                  <div className="col-md-6"><label className="labels fs-6">Country</label><input type="text" className="form-control" placeholder="country" value={newVal.country} name="country"  onChange={(e)=>{setNewVal(e.target.value)}}/></div>
+                  <div className="col-md-6"><label className="labels fs-6">State</label><input type="text" className="form-control" value={newVal.state} placeholder="state" name="state"  onChange={(e)=>{setNewVal(e.target.value)}}/></div>
               </div>
                 <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>

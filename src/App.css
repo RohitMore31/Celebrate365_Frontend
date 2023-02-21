@@ -437,3 +437,18 @@ hr {
 .about{
   font-family: 'Julee', cursive;
 }
+
+.wish{
+  background-image: url("./images/wish_background.jpg");
+  background-position: center;
+  background-size: 100%;
+  /* background-repeat: no-repeat; */
+}
+.wish textarea{
+  font-family: 'Shantell Sans', cursive;
+}
+.wish h2{
+  padding : 10px;
+  color: rgb(238, 209, 219);
+  font-family: 'Shantell Sans', cursive;
+}
