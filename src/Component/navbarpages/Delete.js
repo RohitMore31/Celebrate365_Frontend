@@ -1,26 +1,27 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
 import Update from "./Update";
 import { useSelector, useDispatch } from 'react-redux'
-import { increment,changeActiveStatus,getUserInfo,setUpdateUtility } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import { setUpdateUtility } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 
 
 export default function Delete() {
+  // use states 
   const [memberlist, setMemberlist] = useState(null);
   const [deleteName,setDeleteName] =useState();
   const [updateData,setUpdateData]=useState();
   const [status,setStatus]=useState(false);
   const [notFound,setNotFound]=useState(true);
 
+  // usedispatch hook
   let dispatch = useDispatch();
+
   // Search Handler
   function handler() {
     let jsonInput={
       fname:deleteName,
     }
-    console.log(jsonInput.fname);
-    console.log("inside a handler ");
+    // Axios
     axios.post("http://localhost:4000/showbyname",jsonInput).then((response) => {
       // console.log("getting response.. inside delete",response);
       if(response.data.length === 0){
@@ -29,29 +30,26 @@ export default function Delete() {
       // put response data in setMemberlist
       setMemberlist(response.data);
       setNotFound(true);
-      console.log(memberlist);
       }
     });
   }
 
+  // update handler
   let handleUpdate = (id,index) => {
-    console.log("index="+index);
-    console.log(memberlist[index]);
     setUpdateData(memberlist[index]); 
     dispatch(setUpdateUtility(memberlist[index]));
     setStatus(true);
-    
   }
+
+  // Status handler
   let statusCheker =(temp)=>{
-    console.log("temp values in side parent="+temp);
     if(!temp){
       setStatus(false);
     }
   }
 
+  // delete handler
   let handleDelete = (id,index) => {
-    console.log("index="+id);
-    console.log(memberlist[id]);
     setUpdateData(memberlist[id]);
     let jsonInput={
       id:id,
@@ -59,10 +57,8 @@ export default function Delete() {
 
     let memberlist1 = [...memberlist];
     memberlist1.splice(index, 1);
-    console.log(memberlist1);
     setMemberlist(memberlist1);
     axios.post("http://localhost:4000/deletebyid",jsonInput).then((response) => {
-      console.log("getting response..", response.data);
     });
   };
 
@@ -70,6 +66,7 @@ export default function Delete() {
     <div className="deletefr">
       <div className="outerform">
         <div className="form">
+          {/* for searching */}
           <label for="unameslot">First Name</label>
           <br />
           <input type="text" id="uname" name="uname" onChange={(e)=>{setDeleteName(e.target.value)}}></input>
@@ -98,7 +95,6 @@ export default function Delete() {
               </tr>
             </thead>
             <tbody>
-              {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
               {memberlist?.map((member, index) => (
                 <tr key={member.id}>
                   <td>{member.id}</td>
@@ -119,6 +115,7 @@ export default function Delete() {
       </div>:""}
       </>:<h4>NotFound</h4>}
   
+      {/* update component will render depemding on user click on update button */}
       {status?<Update data={updateData} handler={statusCheker} ></Update>:""}
     </div>
   );

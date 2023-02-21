@@ -3,10 +3,10 @@ import { TfiEmail } from "react-icons/tfi"
 import { useNavigate } from 'react-router-dom'
 
 export default function HomeUpcoming(props) {
-  /* id: 1, fname: 'rohit', lname: 'more', dob: '1998-01-31' */
   let y = props.alldata;
   var upcomingBdayData ;
 
+  // calculating upcomming bday data
   if (y != null) {
     upcomingBdayData = y.filter((x) => {
       let d = new Date(x.dob);
@@ -21,23 +21,23 @@ export default function HomeUpcoming(props) {
     console.log(upcomingBdayData);
   }
 
+  // use Navigate hooks to navigate to wish page
   const Navigate=useNavigate();
   let wishPageHandler =(index)=>{
-    // console.log(index);
     Navigate('wishbday',{
       state: {
           name: 'Programming Fields',
           message: 'Message from home component',
           mydata:upcomingBdayData[index]
       },
-  })
+    })
   }
 
 
   return (
     <div className="container">
       <h2>Upcomming.....</h2>
-          {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
+        {/* rendering data using map */}
           {upcomingBdayData?.map((member, index) => (
          
             <div className="mycontainer">

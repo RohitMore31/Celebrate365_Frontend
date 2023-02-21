@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 export default function AddNew() {
+  // use Select Hooks
   let userData =useSelector((state)=>state.userInfo.UserInfo);
+  
+  // use states
   const[AddStatus,setAddStatus]=useState(false);
   const[AddStatusInfo,setAddStatusInfo]=useState("");
 
@@ -22,15 +25,12 @@ export default function AddNew() {
       email:email,
       uid:userData.uid
     }
-    console.log(jsonInput.date);
+    // Axios
     axios.post("http://localhost:4000/addnew",jsonInput).then((resp)=>{
-      console.log(resp);
-      if(resp.data.Status==="error"){
-        console.log("inside error");
+    if(resp.data.Status==="error"){
         setAddStatus(true);
         setAddStatusInfo("error try again");
       }else if(resp.data.Status==="sucess"){
-        console.log("inside sucess");
         setAddStatus(true);
         setAddStatusInfo("Added Sucessfully");
       }
@@ -41,11 +41,12 @@ export default function AddNew() {
   }
   
   
-  return (
-    
+  return (    
     <div className="Addnew">
       <h3 className="title-form-control">Add New Friend !!!!!</h3> 
       {AddStatus?<div>{AddStatusInfo}</div>:""}
+
+      {/* form to get input from user */}
       <form className="form" onSubmit={addHandler} >
         <div>
           <label for="uname">First Name</label>
@@ -63,9 +64,6 @@ export default function AddNew() {
           <input type="email" id="email" name="email"></input>
         </div>
         <div>
-          {/* <label for="date">Birth Date</label>
-          <br />
-          <input type="date" id="date" name="date" value=""></input> */}
           <label for="dob">birthday</label><br/>
           <input type="date" id="dob" name="dob" required></input>
 

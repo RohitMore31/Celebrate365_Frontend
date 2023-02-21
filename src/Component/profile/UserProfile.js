@@ -4,16 +4,21 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 
 export default function UserProfile() {
+  // useDispatcher hook
   const dispatch = useDispatch();
   let userData =useSelector((state)=>state.userInfo.UserInfo);
+  
+  // use state
   const [newVal,setNewVal] = useState(userData);
+  
+  // profile update handlers
   let profileUpdateHandler=(e)=>{
+    // confirming before updating
     let check = window.confirm("Do You WantTo Update");
     if(check){
     e.preventDefault();
     let fname =e.target[0].value;
     let lname = e.target[1].value;
-
     let mobile = e.target[2].value;
     let address = e.target[3].value;
     let email = e.target[4].value;
@@ -35,6 +40,7 @@ export default function UserProfile() {
 
       uid:userData.uid
     };
+    // Axios Post
     axios.post("http://localhost:4000/user/profile/update",jsonInput).then((resp)=>{
       // console.log(resp);
       if(resp.data.Status==="error"){
@@ -60,7 +66,7 @@ export default function UserProfile() {
           </div>
           <div className="col-md-6 border-right">
 
-
+            {/* form for update profile */}
             <form onSubmit={profileUpdateHandler}>
             <div className="p-3 py-3">
               <div className="d-flex justify-content-between align-items-center mb-3">

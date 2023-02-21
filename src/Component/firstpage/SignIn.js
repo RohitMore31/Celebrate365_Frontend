@@ -2,19 +2,18 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import SignUp from './SignUp';
 import { useSelector, useDispatch } from 'react-redux'
-import { increment,changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import { changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 
 
 export default function SignIn() {
+  // use state hooks
   const [registerBtnSwitch,setRegisterBtnSwitch]=useState(true);
   const [signInStatus,setsignInStatus] =useState(false)
 
   let signInStatus2 = useSelector((state)=>state.userInfo.activeStatus)
-  console.log("inside a signIn.js" ,signInStatus2);
-
   let signInStatus3 = useSelector((state)=>state.userInfo.UserInfo)
-  console.log("inside a signIn.js" ,signInStatus3);
 
+  // use dispatch hooks
   const dispatch = useDispatch();
   let signInErrorHandler = ()=>{
     setsignInStatus(true);
@@ -24,43 +23,41 @@ export default function SignIn() {
     setRegisterBtnSwitch(false);
   };
 
-    let signInHandler=(e)=>{
-        e.preventDefault();
-        // console.log(e);
-        let email = e.target[0].value;
-        let pass = e.target[1].value;
-        let jsonInput = {
-          email: email,
-          password: pass,
-        };
-        console.log(jsonInput.email);
-        axios.post("http://localhost:4000/user/signin",jsonInput).then((resp)=>{
-          console.log(resp);
-          if(resp.data.Status==="error"){
-            console.log("inside error");
-            signInErrorHandler();
-          }else if(resp.data.Status==="sucess"){
-            console.log("inside sucess ",resp.data);
-            let x = resp.data;
-            let obj = {
-              fname:x.data[0].fname,
-              email:x.data[0].email,
-              uid:x.data[0].uid,
-              lname:x.data[0].lname,
-              dob:x.data[0].dob,
-              country:x.data[0].country,
-              state:x.data[0].state,
-              mobile:x.data[0].mobile,
-              address:x.data[0].address
-            }
-            // console.log(obj);
+  // Sign In HAndler
+  let signInHandler=(e)=>{
+    e.preventDefault();
+    let email = e.target[0].value;
+    let pass = e.target[1].value;
+    let jsonInput = {
+        email: email,
+        password: pass,
+      };
 
-            dispatch(getUserInfo(obj));
-
-            dispatch(changeActiveStatus()); 
-          }
-        })
+    // Using Axios sign in user
+    axios.post("http://localhost:4000/user/signin",jsonInput).then((resp)=>{
+      if(resp.data.Status==="error"){
+          signInErrorHandler();
+      }else if(resp.data.Status==="sucess"){
+        let x = resp.data;
+        let obj = {
+          fname:x.data[0].fname,
+          email:x.data[0].email,
+          uid:x.data[0].uid,
+          lname:x.data[0].lname,
+          dob:x.data[0].dob,
+          country:x.data[0].country,
+          state:x.data[0].state,
+          mobile:x.data[0].mobile,
+          address:x.data[0].address
+        }
+        // console.log(obj);
+         // setting redux values ito redux store 
+        dispatch(getUserInfo(obj));
+        // setting active status into redux store
+        dispatch(changeActiveStatus()); 
       }
+    })
+  }
 
   return (
 <div className='signin'>

@@ -1,13 +1,12 @@
 import React from "react";
+
+// Browser Router Route and Routes for routing 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./navbarpages/AddNew";
-import Contact from "./navbarpages/ShowAll";
+
+// differnt component  import
 import Home from "./homepages/Home";
 import Navbar from "./navbarpages/Navbar";
-// import NewPr from "./NewPr";
 import Nomatch from "./navbarpages/Nomatch";
-// import Add from "./Delete";
-// import Read_More from "./Read_More";
 import AddNew from "./navbarpages/AddNew";
 import ShowAll from "./navbarpages/ShowAll";
 import Delete from "./navbarpages/Delete";
@@ -22,11 +21,13 @@ export default function () {
           <Navbar />
           <div className="AllRoutes">
             <Routes>
+
+              {/* configuring path with component */}
+              
               <Route path="/" element={<Home />}></Route>
               <Route path="/addnew" element={<AddNew />}></Route>
               <Route path="/showall" element={<ShowAll />}></Route>
               <Route path="/userprofile" element={<UserProfile />}></Route>
-              {/* <Route path="/moreabout" element={<Read_More />}></Route> */}
               <Route path="/delete" element={<Delete />}></Route>
               <Route path="/aboutus" element={<AboutUs />}></Route>
               <Route path="wishbday" element={<Wish />}></Route>

@@ -1,6 +1,7 @@
 // you need to import this 
 import { createSlice } from '@reduxjs/toolkit'
 
+// intializing differnt states
 const initialState = {
   value: 0,
   activeStatus:false,

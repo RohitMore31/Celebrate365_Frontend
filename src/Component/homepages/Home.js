@@ -6,20 +6,19 @@ import HomeUpcoming from "./HomeUpcoming";
 
 export default function Home() {
   const [memberlist, setMemberlist] = useState(null);
+  // Fetting Data from Redux Store
   let userData =useSelector((state)=>state.userInfo.UserInfo);
   let jsonInput = {
     uid:userData.uid
   };
-  console.log("inside home",jsonInput.uid);
+
   React.useEffect(() => {
-    console.log("inside a handler in home Page ");
+    // Axios 
     axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
-      setMemberlist(response.data);
+    // Getting Data from Server   
+    setMemberlist(response.data);
     });
   }, []);
-
-  let x = 10;
-  console.log(x);
 
   return (
     <div className="homecontainer">
@@ -27,8 +26,10 @@ export default function Home() {
         <h1>BirthDay's </h1>
         <p>Are you know bithday of your friend ? don't Worry</p>
       </div>
+      {/* HomeUpcoming component */}
       <HomeUpcoming alldata={memberlist} ></HomeUpcoming>
       <hr/>
+      {/* HomeRecent component */}
       <HomeRecent alldata={memberlist}></HomeRecent>
     </div>
   );

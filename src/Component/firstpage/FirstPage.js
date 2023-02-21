@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import FooterComponent from "./FooterComponent";
-import HeaderComponent from "./HeaderComponent";
 import SignIn from "./SignIn";
 
 export default function FirstPage() {
@@ -12,8 +11,11 @@ export default function FirstPage() {
     setsignInBtnStatus(true);
   };
   return (
-    <div>
-      { signInBtnStatus ? <div className="firstpage">
+    //First page 
+  <div>
+    { signInBtnStatus ? 
+    <div className="firstpage">
+        {/* Register or Sign in buttons */}
       <div className="headercomponent">
         <button className="btn btnfont" onClick={signInBtnStatusHandler}>
           Register / SignIn
@@ -23,6 +25,7 @@ export default function FirstPage() {
       <div className="centerbox">
         <div className="hometitle">
           <h1>BirthDay </h1>
+          <h2>Remainder</h2>
           <p>Are you know bithday of your friend ? don't Worry</p>
         </div>
       </div>

@@ -5,6 +5,7 @@ export default function HomeRecent(props) {
   var recentlyDoneData =null;
 
   if (props.alldata != null) {
+    //Calculating recently done birthaday which is near 1 months in interval
     recentlyDoneData = props.alldata.filter((x) => {
       let d = new Date(x.dob);
       let src = d.getMonth() + 1;
@@ -22,9 +23,8 @@ export default function HomeRecent(props) {
     recentlyDoneData!=0?
     <div className="container">
        <h2>Recently Done!!!!!</h2>
-    
+        {/* using map rendering data  */}
           {recentlyDoneData?.map((member, index) => (
-      
             <div className="mycontainer">
               <div className="imgbox">
                 {/* <img src="https://media.istockphoto.com/id/1059661424/photo/mature-mixed-race-business-man.jpg?s=612x612&w=0&k=20&c=UAVBeyoD_LkCh1MzVaWW1SR1iwK-VkPDXWMH2o2wL8M="></img> */}
@@ -44,6 +44,7 @@ export default function HomeRecent(props) {
           ))}
      
     </div>
+    // if no record found then this div wiill shows
     :<h3>No recent records</h3>
   );
 }

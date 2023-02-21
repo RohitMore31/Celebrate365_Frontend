@@ -4,11 +4,12 @@ import { useState } from "react";
 import SignIn from "./SignIn"
 
 const SignUp = () => {
-
+// use state
   const [registerStatus, setRegisterStatus] =useState(false);
   const [registerStatusInfo,setRegisterStatusInfo]=useState("");
   const [registerBtnSwitch,setRegisterBtnSwitch]=useState(true);
 
+// sign up handler  
   let signUpHandler = (e) => {
     e.preventDefault();
 
@@ -25,31 +26,26 @@ const SignUp = () => {
     
     // if pass and repeat pass is same then call axios
     if(pass === repass){
-      console.log("inside axios");
+
       axios.post("http://localhost:4000/user/signup", jsonInput).then((resp) => {
       // if Status from server return error then show msg Already exist here we write this code for Duplicate entry error
-      console.log(resp);
       if(resp.data.Status==="error"){
-        console.log("inside error");
+        
         setRegisterStatus(true);
         setRegisterStatusInfo("Already Registerd");
         // console.log(resp.data.error.code);
       }else if(resp.data.Status==="sucess"){
-        console.log("inside sucess");
-
         setRegisterStatus(true);
         setRegisterStatusInfo("Registration Done sucessfully");
-        console.log("inside sucess ",resp.data.status);
-        console.log(registerStatusInfo);
       }
-    }).catch(error=>{
-     console.log(error.code)
-     setRegisterStatus(true);
-     setRegisterStatusInfo(error.code);
-    })
+      }).catch(error=>{
+          setRegisterStatus(true);
+           setRegisterStatusInfo(error.code);
+      })
     }
   };
 
+// switch btn from signin to signup
   let switchHandler=()=>{
     setRegisterBtnSwitch(false);
   }
@@ -112,19 +108,6 @@ const SignUp = () => {
                           />
               
                       </div>
-
-                      {/* <input
-                        className="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="form2Example3c"
-                      />
-                      <label className="form-check-label" for="form2Example3">
-                        I agree all statements in{" "}
-                        <a href="#!" style={{ fontSize: "1vw" }}>
-                          Terms of service
-                        </a>
-                      </label> */}
 
                       <div className="d-flex justify-content-center">
                         <button type="submit" className="btn btn-primary btn-lg">

@@ -1,7 +1,5 @@
 /*
-=============== 
-Variables
-===============
+===============> Variables
 */
 
 :root {
@@ -55,9 +53,7 @@ Variables
   --clr-orange-10: hsl(13, 73%, 16%);
 }
 /*
-=============== 
-Global Styles
-===============
+=============== Global Styles ===============
 */
 
 *,
@@ -109,6 +105,7 @@ Global Styles
 }
 
 /* =================MEDIA_QUERY========================== */
+
 @media screen and (min-width: 576px) {
   .products {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -129,6 +126,7 @@ Global Styles
 .table-dark {
   font-size: 2vw;
 }
+
 /* ==================HOME_CONTAINER========================== */
 .homecontainer {
   background: linear-gradient(#808fb0, #9fe2bf);
@@ -139,7 +137,7 @@ Global Styles
   align-items: center;
   flex-direction: column;
 }
-/* ====================HOME_CONTAINER_TABLE================ */
+
 .container {
   /* border: 2px solid red; */
   padding: 1vw;
@@ -158,12 +156,13 @@ Global Styles
   margin: 0 1.5vw;
 }
 
-/* =====================Home PAge Title================ */
+/* =====================Home Page Title================ */
+
 .hometitle {
   padding: 10px;
 }
 
-.hometitle h1 {
+.hometitle h1{
   margin: 5vh;
   font-family: "DynaPuff", cursive;
   color: white;
@@ -172,7 +171,7 @@ Global Styles
 .hometitle p {
   font-family: "Caveat", cursive;
 }
-/* ========================================================== */
+
 /* =======================SideBAR=========================== */
 
 .sidebar {
@@ -203,8 +202,8 @@ Global Styles
   background-color: hsl(12, 85%, 90%);
   box-shadow: 1vw 1vw 1vw #6b5c75;
 }
-/* ====================================================== */
-/* =====================ShowALLL======================*/
+
+/* =====================ShowALl Compoment ======================*/
 .showall {
   font-family: "DynaPuff", cursive;
   padding-top: 3vh;
@@ -215,7 +214,6 @@ Global Styles
   padding-top: 3vh;
   background-color: #dce7f7;
 }
-/* ========================================================== */
 
 .leftside {
   width: 75vw;
@@ -268,8 +266,6 @@ td {
   border: 1px solid;
 }
 
-/* ================================================================ */
-
 .container {
   width: 70vw;
 }
@@ -294,6 +290,7 @@ td {
 }
 
 /* =====================FORM_CSS=========================== */
+
 label {
   font-family: "Crete Round", serif;
   font-size: 2vw;
@@ -355,7 +352,7 @@ hr {
   text-transform: capitalize;
 }
 
-/* ===========================HOMECONTAINER================== */
+/* ===========================First CONTAINER================== */
 
 .mycontainer {
   font-family: 'Roboto Slab', serif;
@@ -428,16 +425,14 @@ hr {
   cursor: pointer;
 }
 
+/* ============== Wish Container================= */
+
 .wishfirstbox {
   padding: 3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.about{
-  font-family: 'Julee', cursive;
-}
-
 .wish{
   background-image: url("./images/wish_background.jpg");
   /* background-position: ; */
@@ -452,3 +447,9 @@ hr {
   color: rgb(238, 209, 219);
   font-family: 'Shantell Sans', cursive;
 }
+
+/* =======================About Container =================== */
+.about{
+  font-family: 'Julee', cursive;
+}
+

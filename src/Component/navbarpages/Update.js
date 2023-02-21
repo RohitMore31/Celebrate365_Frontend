@@ -3,17 +3,19 @@ import React, { useState } from 'react'
 
 
 export default function Update(props) {
-    let p = props.data;
+  // storing props into variable p 
+    let p = props.data; 
     let statusCheker = props.handler
 
+    // usestate
     const[fname,setFname]= useState(props.data.fname);
     const[lname,setLname]= useState(props.data.lname);
     const[email,setEmail]= useState(props.data.email);
     const[dob,setDob]= useState(props.data.dob);
 
+    // Add Handler
     let addHandler=(e)=>{
         e.preventDefault();
-        console.log(e);
         let uname = e.target.elements.uname.value;
         let lname = e.target.elements.lname.value;
         let  email = e.target.elements.email.value;
@@ -25,12 +27,13 @@ export default function Update(props) {
           date:date,
           email:email
         }
-        console.log(jsonInput.date);
+        // Axios Put
         axios.put("http://localhost:4000/updatem",jsonInput).then((resp)=>{
-        console.log(resp); 
-    })
+          })
         statusCheker(false);
     }
+
+    // Cancel button handler
     let cancelHandler=()=>{
         statusCheker(false);
     }

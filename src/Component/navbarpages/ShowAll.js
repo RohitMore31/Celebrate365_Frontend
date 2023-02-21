@@ -4,27 +4,18 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function ShowAll() {
   const [memberlist, setMemberlist] = useState();
+
+  // use SelectHooks
   let userData =useSelector((state)=>state.userInfo.UserInfo);
   let jsonInput = {
     uid:userData.uid
   };
  
-
+// responsible for gettinng data from server
   function handler() {
     axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
-      console.log("getting response..", response.data);
       setMemberlist(response.data);
-      console.log(memberlist);
     });}
-
-  
-  let handleDelete = (index) => {
-    console.log(index);
-    let memberlist1 = [...memberlist];
-    memberlist1.splice(index, 1);
-    console.log(memberlist1);
-    setMemberlist(memberlist1);
-  };
 
   return (
     <div className="showall">
@@ -42,7 +33,6 @@ export default function ShowAll() {
             </tr>
           </thead>
           <tbody>
-            {/* id: 1, fname: 'rohit', lname: 'more', dob: '31-01-1998' */}
             {memberlist?.map((member, index) => (
               <tr key={index}>
                 <td>{member.id}</td>
