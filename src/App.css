@@ -429,7 +429,7 @@ hr {
 }
 
 .wishfirstbox {
-  margin-top: 3vh;
+  padding: 3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,7 +440,7 @@ hr {
 
 .wish{
   background-image: url("./images/wish_background.jpg");
-  background-position: center;
+  /* background-position: ; */
   background-size: 100%;
   /* background-repeat: no-repeat; */
 }

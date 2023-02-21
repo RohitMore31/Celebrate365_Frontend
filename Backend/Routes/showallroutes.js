@@ -4,7 +4,7 @@ const db = require("../DB");
 
 
 router.post("/showall",(req,resp)=>{
-    console.log("inside show all",req.url);
+
     const {uid}=req.body;
     // console.log("router is called......");
     const statement = `select * from friend_list where uid=${uid}`

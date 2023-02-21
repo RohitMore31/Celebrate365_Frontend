@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 export default function Update(props) {
     let p = props.data;
-    let statusCheker = props.handlers
+    let statusCheker = props.handler
 
     const[fname,setFname]= useState(props.data.fname);
     const[lname,setLname]= useState(props.data.lname);

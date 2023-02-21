@@ -8,12 +8,12 @@ const router = express.Router();
 
 // FOR Sign up
 router.post('/user/signup',(req,resp)=>{
-    console.log(`req received = ${req.url}`);
+    // console.log(`req received = ${req.url}`);
     const {fname,email,password}=req.body;
     // encript password  
     const encrptPassword = ''+ crypto.SHA256(`${password}`)
     const statement = `insert into user (fname,email,password) values('${fname}','${email}','${encrptPassword}')`
-    console.log("Encrypted pass = ",encrptPassword);
+    // console.log("Encrypted pass = ",encrptPassword);
     db.execute(statement,(error,data)=>{
         const result = {
             Status:''
@@ -22,7 +22,6 @@ router.post('/user/signup',(req,resp)=>{
         if(error){
             result['Status']="error"
             result['error']=error;
-            console.log(result);
         }else{
             result['Status']="sucess"
             result['data']=data;
@@ -33,12 +32,12 @@ router.post('/user/signup',(req,resp)=>{
 
 //For sign in
 router.post('/user/signin',(req,resp)=>{
-    console.log(`req received = ${req.url}`);
+    // console.log(`req received = ${req.url}`);
     const {email,password}=req.body;
     // encript password  
     const encrptPassword = ''+ crypto.SHA256(`${password}`)
     const statement = `select * from user where email='${email}' && password='${encrptPassword}'`
-    console.log("statement pass = ",statement);
+    // console.log("statement pass = ",statement);
     db.execute(statement,(error,data)=>{
         const result = {
             Status:''
@@ -46,28 +45,22 @@ router.post('/user/signin',(req,resp)=>{
         if(error || data.length===0){
             result['Status']="error"
             result['error']=error;
-            console.log(result);
+
         }else{
             result['Status']="sucess"
             result['data']=data;
-            // console.log(data.fname);
-            // console.log(data.email);
-            // console.log(data.uid);
-            // console.log(data);
-
-
         }
         resp.send(result);
     })
 })
 
-
+// For Update Profile
 router.post('/user/profile/update',(req,resp)=>{
-    console.log(`req received = ${req.url}`);
+    // console.log(`req received = ${req.url}`);
     const {fname,lname,mobile,address,email,dob,country,state,uid}=req.body;
 
     const statement = `update user set fname='${fname}',lname='${lname}',mobile='${mobile}',address='${address}',email='${email}',dob='${dob}',country='${country}',state='${state}' where uid=${uid}`
-    console.log("statement pass = ",statement);
+    // console.log("statement pass = ",statement);
     db.execute(statement,(error,data)=>{
         const result = {
             Status:''
@@ -75,16 +68,9 @@ router.post('/user/profile/update',(req,resp)=>{
         if(error || data.length===0){
             result['Status']="error"
             result['error']=error;
-            console.log(result);
         }else{
             result['Status']="sucess"
             result['data']=data;
-            console.log(data.fname);
-            console.log(data.email);
-            console.log(data.uid);
-            console.log(data);
-
-
         }
         resp.send(result);
     })

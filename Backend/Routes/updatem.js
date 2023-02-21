@@ -4,11 +4,12 @@ const db = require("../DB");
 
 
 router.put("/updatem",(req,resp)=>{
-    console.log("router is called......inside updatem");
+    // console.log("router is called......inside updatem");
     const {id,fname,lname,date,email}=req.body;
-    console.log(fname);
+    // console.log(fname);
+
     const statement = `update friend_list set fname='${fname}',lname='${lname}',dob='${date}',femail='${email}' where id=${id}`
-    console.log(statement);
+    // console.log(statement);
     db.execute(statement,(err,data)=>{
        if(err){
        resp.send("Error")

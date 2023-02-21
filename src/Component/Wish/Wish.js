@@ -4,8 +4,6 @@ import { useLocation } from "react-router-dom";
 
 export default function Wish() {
   const location = useLocation();
-//   console.log(location);
-  // console.log(location.state.mydata);
     const [wishStatus,setWishStatus]=useState(false);
     const [sendEmailInfo,setSendEmailInfo]=useState("");
     const [friendEmail,setFriendEmail]=useState(location.state.mydata.femail)
@@ -35,26 +33,28 @@ export default function Wish() {
         console.log("inside error");
         setWishStatus(true);
         setSendEmailInfo("Error in sending Try Later ")
+        setTimeout(() => {
+          setWishStatus(false);
+          }, 8000);
       }else if(resp.data.Status==="sucess"){
         console.log("inside sucess");
         setWishStatus(true);
         setSendEmailInfo("Send sucessfully");
-        
+
       }
     }).catch((error)=>{
       setWishStatus(true);
       setSendEmailInfo("Error in sending Try Later ")
-    });
       setTimeout(() => {
-        setWishStatus(false);
-        }, 8000);
+      setWishStatus(false);
+      },6000);
+    });
   };
 
   return (
     <div className="wish">
       <div className="wishfirstbox">
         <h2> Wish To your Friend !!!</h2>
-        {wishStatus ?<div style={{color:"red"}}>{sendEmailInfo}</div>:" "}
         <div className="card mt-3 " style={{ width: "50vw" }}>
           <div className="card-header">ReciverInfo</div>
           <ul className="list-group list-group-flush">
@@ -84,11 +84,12 @@ export default function Wish() {
                 <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" placeholder="enter wishes" onChange={(e)=>setWishStatement(e.target.value)}></textarea >
                 </div>
                     <button class="btn btn-primary mt-4" type="submit" >Send Email</button>
+                    {wishStatus ?<div style={{color:"red"}}>{sendEmailInfo}</div>:" "}
                 </div>
             </form>
         </div>
       </div>
-      {wishStatus ?<div>{sendEmailInfo}</div>:" "}
+      {/* {wishStatus ?<div>{sendEmailInfo}</div>:" "} */}
     </div>
   );
 }

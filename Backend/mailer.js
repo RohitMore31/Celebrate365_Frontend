@@ -1,7 +1,6 @@
 const nodemailer = require("nodemailer");
 const fs = require('fs');
-// import * as fs from 'fs';
-
+const contents = ""+fs.readFileSync("./email_info/bdaywish.html");
 
 function sendmail(to_mail, msg) {
   const transporter = nodemailer.createTransport({
@@ -11,7 +10,7 @@ function sendmail(to_mail, msg) {
       pass: "olmbarvdtvlioyci",
     },
   });
-  const contents = ""+fs.readFileSync("./mail.html");
+  // console.log(contents);
 
   const mailOptions = {
     from: "rsmore2232@gmail.com", // sender address
@@ -32,11 +31,10 @@ function sendmail(to_mail, msg) {
       // result["Status"] = "error";
       // result["error"] = error;
       // console.log(result);
-      console.log(err);
     } else {
       // result["Status"] = "sucess";
       // result["data"] = data;
-      console.log(info);
+      // console.log(info);
     }
   });
   result["Status"] = "sucess";

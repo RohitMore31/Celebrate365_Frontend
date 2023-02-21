@@ -6,6 +6,7 @@ const initialState = {
   activeStatus:false,
   UserInfo:{fname:"rohit"},
   updateUtility:{}
+  
 }
 //createSlice({name:'',intialState:'',reducers:'{actions name : (state)=>{}}')
 export const counterSlice = createSlice({

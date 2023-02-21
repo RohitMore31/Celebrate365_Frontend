@@ -7,10 +7,10 @@ router.get("/", (req, resp) => {
 });
 
 router.post("/addnew", (req, resp) => {
-  console.log("router is called......inside addnew");
+  // console.log("router is called......inside addnew");
   const { fname, lname, date, email, uid } = req.body;
   const statement = `insert into friend_list(fname,lname,dob,femail,uid) values('${fname}','${lname}','${date}','${email}',${uid})`;
-  console.log(statement);
+  // console.log(statement);
   db.execute(statement, (err, data) => {
     const result = {
       Status: "",

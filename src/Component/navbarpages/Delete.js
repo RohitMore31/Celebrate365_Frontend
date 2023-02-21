@@ -11,6 +11,7 @@ export default function Delete() {
   const [deleteName,setDeleteName] =useState();
   const [updateData,setUpdateData]=useState();
   const [status,setStatus]=useState(false);
+  const [notFound,setNotFound]=useState(true);
 
   let dispatch = useDispatch();
   // Search Handler
@@ -21,10 +22,15 @@ export default function Delete() {
     console.log(jsonInput.fname);
     console.log("inside a handler ");
     axios.post("http://localhost:4000/showbyname",jsonInput).then((response) => {
-      console.log("getting response..", response.data);
+      // console.log("getting response.. inside delete",response);
+      if(response.data.length === 0){
+        setNotFound(false);
+      }else{       
       // put response data in setMemberlist
       setMemberlist(response.data);
+      setNotFound(true);
       console.log(memberlist);
+      }
     });
   }
 
@@ -76,6 +82,7 @@ export default function Delete() {
       </div>
 
       {/* data is comming then shwo it */}
+      {notFound?<>      
       {memberlist!=null?<div className="deleteById">
         <h3>Friend List</h3>
         <div className="container mt-3">
@@ -110,6 +117,8 @@ export default function Delete() {
           </table>
         </div>
       </div>:""}
+      </>:<h4>NotFound</h4>}
+  
       {status?<Update data={updateData} handler={statusCheker} ></Update>:""}
     </div>
   );
