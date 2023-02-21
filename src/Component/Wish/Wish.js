@@ -28,7 +28,7 @@ export default function Wish() {
       jsonInput.message="Wishing you a very happy birthday have a Great Day"
     }
       //Axios Post
-      axios.post("http://localhost:4000/user/bdaywish", jsonInput).then((resp) => {
+      axios.post("http://13.235.49.69:4000/user/bdaywish", jsonInput).then((resp) => {
       if(resp.data.Status==="error"){
         setWishStatus(true);
         setSendEmailInfo("Error in sending Try Later ")

@@ -28,7 +28,7 @@ export default function Update(props) {
           email:email
         }
         // Axios Put
-        axios.put("http://localhost:4000/updatem",jsonInput).then((resp)=>{
+        axios.put("http://13.235.49.69:4000/updatem",jsonInput).then((resp)=>{
           })
         statusCheker(false);
     }

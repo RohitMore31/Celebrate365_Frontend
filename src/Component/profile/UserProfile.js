@@ -41,7 +41,7 @@ export default function UserProfile() {
       uid:userData.uid
     };
     // Axios Post
-    axios.post("http://localhost:4000/user/profile/update",jsonInput).then((resp)=>{
+    axios.post("http://13.235.49.69:4000/user/profile/update",jsonInput).then((resp)=>{
       // console.log(resp);
       if(resp.data.Status==="error"){
         // console.log("inside error");

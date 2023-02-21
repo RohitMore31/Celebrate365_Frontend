@@ -34,7 +34,7 @@ export default function SignIn() {
       };
 
     // Using Axios sign in user
-    axios.post("http://localhost:4000/user/signin",jsonInput).then((resp)=>{
+    axios.post("http://13.235.49.69:4000/user/signin",jsonInput).then((resp)=>{
       if(resp.data.Status==="error"){
           signInErrorHandler();
       }else if(resp.data.Status==="sucess"){

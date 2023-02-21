@@ -7,7 +7,6 @@ import FirstPage from './Component/firstpage/FirstPage';
 
 function App() {
   let signInStatus = useSelector((state)=>state.userInfo.activeStatus)
-  console.log("inside a App.js" ,signInStatus);
   return (
     <div className="App">
       {signInStatus ? <App5 /> : <FirstPage />}

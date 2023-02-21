@@ -13,7 +13,6 @@ export default function AddNew() {
 
   let addHandler=(e)=>{
     e.preventDefault();
-    console.log(e);
     let uname = e.target.elements.uname.value;
     let lname = e.target.elements.lname.value;
     let email = e.target.elements.email.value;
@@ -26,7 +25,7 @@ export default function AddNew() {
       uid:userData.uid
     }
     // Axios
-    axios.post("http://localhost:4000/addnew",jsonInput).then((resp)=>{
+    axios.post("http://13.235.49.69:4000/addnew",jsonInput).then((resp)=>{
     if(resp.data.Status==="error"){
         setAddStatus(true);
         setAddStatusInfo("error try again");

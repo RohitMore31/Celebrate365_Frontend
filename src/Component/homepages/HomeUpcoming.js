@@ -14,11 +14,11 @@ export default function HomeUpcoming(props) {
       let c = new Date();
       let tar = c.getMonth() + 1;
       if (tar === src) {
-        console.log("upcomming birhday");
+        // console.log("upcomming birhday");
         return x;
       }
     });
-    console.log(upcomingBdayData);
+    // console.log(upcomingBdayData);
   }
 
   // use Navigate hooks to navigate to wish page

@@ -14,7 +14,7 @@ export default function Home() {
 
   React.useEffect(() => {
     // Axios 
-    axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
+    axios.post("http://13.235.49.69:4000/showall",jsonInput).then((response) => {
     // Getting Data from Server   
     setMemberlist(response.data);
     });

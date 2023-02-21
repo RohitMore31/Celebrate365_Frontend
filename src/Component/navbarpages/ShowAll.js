@@ -13,7 +13,7 @@ export default function ShowAll() {
  
 // responsible for gettinng data from server
   function handler() {
-    axios.post("http://localhost:4000/showall",jsonInput).then((response) => {
+    axios.post("http://13.235.49.69:4000/showall",jsonInput).then((response) => {
       setMemberlist(response.data);
     });}
 
