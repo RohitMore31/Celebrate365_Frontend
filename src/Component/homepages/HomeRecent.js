@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsFillPersonCheckFill } from "react-icons/bs"
 
 export default function HomeRecent(props) {
   var recentlyDoneData =null;
 
-  if (props.alldata != null) {
+  
+  if (Array.isArray(props.alldata)) {
+    // console.log("for debug inside HomeRecent");
     //Calculating recently done birthaday which is near 1 months in interval
-    recentlyDoneData = props.alldata.filter((x) => {
+    recentlyDoneData = props.alldata.filter(
+      (x) => {
       let d = new Date(x.dob);
       let src = d.getMonth() + 1;
       let c = new Date();
       let trg = c.getMonth() + 1;
-      if (trg - src == 1) {
+
+      //  console.log(c.getDay());
+      //  console.log(d.getDay());
+      //  console.log(c.getDay() > d.getDay());
+
+      if ((trg - src == 0) && (c.getDay() < d.getDay()) )  {
         return x;
       } else if (trg == 1 && src == 12) {
         return x;
       }
-    });
+    }
+    );
   }
+
 
   return (
     recentlyDoneData!=0?

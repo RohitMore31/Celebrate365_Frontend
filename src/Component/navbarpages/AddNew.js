@@ -11,6 +11,7 @@ export default function AddNew() {
   const[AddStatus,setAddStatus]=useState(false);
   const[AddStatusInfo,setAddStatusInfo]=useState("");
 
+  // Add Handler
   let addHandler=(e)=>{
     e.preventDefault();
     let uname = e.target.elements.uname.value;
@@ -36,6 +37,13 @@ export default function AddNew() {
       setTimeout(() => {
         setAddStatus(false)
       }, 5000);
+    }).catch(error=>{
+      setAddStatus(true);
+      setAddStatusInfo("Error Please Try Later");
+      setTimeout(() => {
+        setAddStatus(false)
+      }, 7000);
+      console.log(error);
     })
   }
   

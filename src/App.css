@@ -284,7 +284,7 @@ td {
 
 .outerform {
   /* border:2px solid red; */
-  margin: 2vh;
+  padding: 2vh;
 }
 
 /* =====================FORM_CSS=========================== */
@@ -451,3 +451,6 @@ hr {
   font-family: 'Julee', cursive;
 }
 
+.deletefr{
+  background-color: #dce7f7;
+}

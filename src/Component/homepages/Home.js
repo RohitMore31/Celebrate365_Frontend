@@ -5,7 +5,7 @@ import HomeRecent from "./HomeRecent";
 import HomeUpcoming from "./HomeUpcoming";
 
 export default function Home() {
-  const [memberlist, setMemberlist] = useState(null);
+  const [memberlist, setMemberlist] = useState();
   // Fetting Data from Redux Store
   let userData =useSelector((state)=>state.userInfo.UserInfo);
   let jsonInput = {
@@ -17,6 +17,8 @@ export default function Home() {
     axios.post("http://13.235.49.69:4000/showall",jsonInput).then((response) => {
     // Getting Data from Server   
     setMemberlist(response.data);
+    // console.log("for debug inside Home component");
+    // console.log((response.data));
     });
   }, []);
 

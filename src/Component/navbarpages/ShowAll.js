@@ -22,7 +22,7 @@ export default function ShowAll() {
       <h3>Friend List</h3>
       <button onClick={handler} className="btn">Show All</button>
       <div className= "container mt-3" >
-      {memberlist!=null?<table className="table table-dark table-striped" >
+      {memberlist!=null?<table className="table table-striped table-success" >
           <thead>
             <tr>
               <th>Id</th>
@@ -34,7 +34,7 @@ export default function ShowAll() {
           </thead>
           <tbody>
             {memberlist?.map((member, index) => (
-              <tr key={index}>
+              <tr key={index} >
                 <td>{member.id}</td>
                 <td>{member.fname}</td>
                 <td>{member.lname}</td>

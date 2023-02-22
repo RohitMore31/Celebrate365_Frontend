@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TfiEmail } from "react-icons/tfi"
 import { useNavigate } from 'react-router-dom'
 
 export default function HomeUpcoming(props) {
   let y = props.alldata;
+  
   var upcomingBdayData ;
-
-  // calculating upcomming bday data
-  if (y != null) {
-    upcomingBdayData = y.filter((x) => {
-      let d = new Date(x.dob);
-      let src = d.getMonth() + 1;
-      let c = new Date();
-      let tar = c.getMonth() + 1;
-      if (tar === src) {
-        // console.log("upcomming birhday");
-        return x;
-      }
-    });
-    // console.log(upcomingBdayData);
-  }
+    if (Array.isArray(y)) {
+      // console.log("inside a home if ",y);
+      // let Data =  y.filter((x) => {
+        upcomingBdayData =  y.filter((x) => {
+        let d = new Date(x.dob);
+        let src = d.getMonth() + 1;
+        let c = new Date();
+        let tar = c.getMonth() + 1;
+        if (tar === src && (c.getDay() > d.getDay())) {
+          // console.log("upcomming birhday");
+          return x;
+        }
+      });
+     
+    }
 
   // use Navigate hooks to navigate to wish page
   const Navigate=useNavigate();
@@ -38,7 +39,8 @@ export default function HomeUpcoming(props) {
     <div className="container">
       <h2>Upcomming.....</h2>
         {/* rendering data using map */}
-          {upcomingBdayData?.map((member, index) => (
+          {/* {upcomingBdayData?.map((member, index) => ( */}
+          { Array.isArray(upcomingBdayData)?upcomingBdayData.map((member, index) => (
          
             <div className="mycontainer">
               <div className="imgbox">
@@ -57,7 +59,7 @@ export default function HomeUpcoming(props) {
                 </div>
               </div>
             </div>
-          ))}
+          )):""}
         </div>
       );
 }

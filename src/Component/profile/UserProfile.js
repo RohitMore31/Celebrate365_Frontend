@@ -7,7 +7,8 @@ export default function UserProfile() {
   // useDispatcher hook
   const dispatch = useDispatch();
   let userData =useSelector((state)=>state.userInfo.UserInfo);
-  
+  const[AddStatus,setAddStatus]=useState(false);
+
   // use state
   const [newVal,setNewVal] = useState(userData);
   
@@ -42,12 +43,13 @@ export default function UserProfile() {
     };
     // Axios Post
     axios.post("http://13.235.49.69:4000/user/profile/update",jsonInput).then((resp)=>{
-      // console.log(resp);
+      console.log(resp);
       if(resp.data.Status==="error"){
         // console.log("inside error");
       }else if(resp.data.Status==="sucess"){
         // console.log("inside sucess ",resp.data);
           dispatch(getUserInfo(jsonInput));
+          setAddStatus(true);
         }
         setNewVal(jsonInput)
       }); 
@@ -87,6 +89,7 @@ export default function UserProfile() {
                   <div className="col-md-6"><label className="labels fs-6">State</label><input type="text" className="form-control" value={newVal.state} placeholder="state" name="state"  onChange={(e)=>{setNewVal(e.target.value)}}/></div>
               </div>
                 <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+                {AddStatus?<div>{}</div>:""}
             </div>
             </form>
           </div>
