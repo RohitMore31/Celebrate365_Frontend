@@ -89,7 +89,7 @@ export default function UserProfile() {
                   <div className="col-md-6"><label className="labels fs-6">State</label><input type="text" className="form-control" value={newVal.state} placeholder="state" name="state"  onChange={(e)=>{setNewVal(e.target.value)}}/></div>
               </div>
                 <div className="mt-5 text-center"><button className="btn btn-primary profile-button" type="submit">Save Profile</button></div>
-                {AddStatus?<div>{}</div>:""}
+                {AddStatus?<div>Profile Update Sucessfully</div>:""}
             </div>
             </form>
           </div>
