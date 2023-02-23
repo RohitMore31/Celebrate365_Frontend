@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { ipadd } from "../ipadd";
 import SignIn from "./SignIn"
 
 const SignUp = () => {
@@ -27,7 +28,7 @@ const SignUp = () => {
     // if pass and repeat pass is same then call axios
     if(pass === repass){
 
-      axios.post("http://13.235.49.69:4000/user/signup", jsonInput).then((resp) => {
+      axios.post(`http://${ipadd.ipa}:4000/user/signup`, jsonInput).then((resp) => {
       // if Status from server return error then show msg Already exist here we write this code for Duplicate entry error
       if(resp.data.Status==="error"){
         

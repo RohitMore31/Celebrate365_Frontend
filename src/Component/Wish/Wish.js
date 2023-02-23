@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { ipadd } from "../ipadd";
 
 
 export default function Wish() {
@@ -33,7 +34,7 @@ export default function Wish() {
       jsonInput.message="Wishing you a very happy birthday have a Great Day"
     }
       //Axios Post
-      axios.post("http://13.235.49.69:4000/user/bdaywish", jsonInput).then((resp) => {
+      axios.post(`http://${ipadd.ipa}:4000/user/bdaywish`, jsonInput).then((resp) => {
       if(resp.data.Status==="error"){
         setWishStatus(true);
         setSendEmailInfo("Error in sending Try Later ")

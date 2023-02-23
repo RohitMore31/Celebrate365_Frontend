@@ -4,7 +4,7 @@ import SignUp from './SignUp';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 import ForgotPage from './ForgotPage';
-
+import { ipadd } from '../ipadd'
 
 export default function SignIn() {
   // use state hooks
@@ -35,8 +35,8 @@ export default function SignIn() {
         password: pass,
       };
 
-    // Using Axios sign in user
-    axios.post("http://13.235.49.69:4000/user/signin",jsonInput).then((resp)=>{
+     
+    axios.post(`http://${ipadd.ipa}:4000/user/signin`,jsonInput).then((resp)=>{
       if(resp.data.Status==="error"){
           signInErrorHandler();
       }else if(resp.data.Status==="sucess"){

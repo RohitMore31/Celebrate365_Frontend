@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
+import { ipadd } from "../ipadd";
 import HomeRecent from "./HomeRecent";
 import HomeUpcoming from "./HomeUpcoming";
 
@@ -14,7 +15,7 @@ export default function Home() {
 
   React.useEffect(() => {
     // Axios 
-    axios.post("http://13.235.49.69:4000/showall",jsonInput).then((response) => {
+    axios.post(`http://${ipadd.ipa}:4000/showall`,jsonInput).then((response) => {
     // Getting Data from Server   
     setMemberlist(response.data);
     // console.log("for debug inside Home component");

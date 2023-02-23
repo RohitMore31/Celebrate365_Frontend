@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { ipadd } from '../ipadd';
 
 
 export default function Update(props) {
@@ -28,7 +29,7 @@ export default function Update(props) {
           email:email
         }
         // Axios Put
-        axios.put("http://13.235.49.69:4000/updatem",jsonInput).then((resp)=>{
+        axios.put(`http://${ipadd.ipa}:4000/updatem`,jsonInput).then((resp)=>{
           })
         statusCheker(false);
     }

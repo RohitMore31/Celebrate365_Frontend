@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Update from "./Update";
 import { useSelector, useDispatch } from 'react-redux'
 import { setUpdateUtility } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import { ipadd } from "../ipadd";
 
 
 export default function Delete() {
@@ -22,7 +23,7 @@ export default function Delete() {
       fname:deleteName,
     }
     // Axios
-    axios.post("http://13.235.49.69:4000/showbyname",jsonInput).then((response) => {
+    axios.post(`http://${ipadd.ipa}:4000/showbyname`,jsonInput).then((response) => {
       // console.log("getting response.. inside delete",response);
       if(response.data.length === 0){
         setNotFound(false);
@@ -58,7 +59,7 @@ export default function Delete() {
     let memberlist1 = [...memberlist];
     memberlist1.splice(index, 1);
     setMemberlist(memberlist1);
-    axios.post("http://13.235.49.69:4000/deletebyid",jsonInput).then((response) => {
+    axios.post(`http://${ipadd.ipa}:4000/deletebyid`,jsonInput).then((response) => {
     });
   };
 

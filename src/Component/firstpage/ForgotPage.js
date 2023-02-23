@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { ipadd } from '../ipadd';
 
 export default function ForgotPage() {
   const [noticeInfo,setNoticeInfo]=useState(false);
@@ -11,7 +12,7 @@ export default function ForgotPage() {
           };
         // console.log(jsonInput.email);
         // Using Axios sign in user
-        axios.post("http://13.235.49.69:4000/forgotpassword",jsonInput).then((resp)=>{
+        axios.post(`http://${ipadd.ipa}:4000/forgotpassword`,jsonInput).then((resp)=>{
           if(resp.data.Status==="error"){
               alert("Not Found");
           }else if(resp.data.Status==="sucess"){

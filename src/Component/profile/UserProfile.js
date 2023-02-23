@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import { ipadd } from '../ipadd';
 
 export default function UserProfile() {
   // useDispatcher hook
@@ -42,7 +43,7 @@ export default function UserProfile() {
       uid:userData.uid
     };
     // Axios Post
-    axios.post("http://13.235.49.69:4000/user/profile/update",jsonInput).then((resp)=>{
+    axios.post(`http://${ipadd.ipa}:4000/user/profile/update`,jsonInput).then((resp)=>{
       console.log(resp);
       if(resp.data.Status==="error"){
         // console.log("inside error");

@@ -14,7 +14,7 @@ export default function HomeUpcoming(props) {
         let src = d.getMonth() + 1;
         let c = new Date();
         let tar = c.getMonth() + 1;
-        if (tar === src && (c.getDay() > d.getDay())) {
+        if (tar === src && (c.getDate() < d.getDate())) {
           // console.log("upcomming birhday");
           return x;
         }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { ipadd } from "../ipadd";
 
 
 export default function AddNew() {
@@ -26,7 +27,7 @@ export default function AddNew() {
       uid:userData.uid
     }
     // Axios
-    axios.post("http://13.235.49.69:4000/addnew",jsonInput).then((resp)=>{
+    axios.post(`http://${ipadd.ipa}:4000/addnew`,jsonInput).then((resp)=>{
     if(resp.data.Status==="error"){
         setAddStatus(true);
         setAddStatusInfo("error try again");

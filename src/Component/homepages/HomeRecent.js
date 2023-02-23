@@ -14,14 +14,10 @@ export default function HomeRecent(props) {
       let src = d.getMonth() + 1;
       let c = new Date();
       let trg = c.getMonth() + 1;
-
-      //  console.log(c.getDay());
-      //  console.log(d.getDay());
-      //  console.log(c.getDay() > d.getDay());
-
-      if ((trg - src == 0) && (c.getDay() < d.getDay()) )  {
+        
+      if (((trg-src) === 0) && (c.getDate() > d.getDate()) )  {
         return x;
-      } else if (trg == 1 && src == 12) {
+      } else if (trg === 1 && src === 12) {
         return x;
       }
     }
