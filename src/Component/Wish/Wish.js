@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+
 
 export default function Wish() {
   //use location hooks
@@ -10,6 +12,8 @@ export default function Wish() {
     const [friendEmail,setFriendEmail]=useState(location.state.mydata.femail)
     const [wishStatement,setWishStatement]=useState("Wishing you a very happy birthday");
   
+    const fromuser = useSelector((state)=>state.userInfo.UserInfo)
+
     // birthday wish handler
     let bdaywishHandler = (e) => {
     e.preventDefault();
@@ -21,6 +25,7 @@ export default function Wish() {
       lname: location.state.mydata.lname,
       email: email,
       message: message,
+      from:fromuser.fname,
     };
 
     // if pass and repeat pass is same then call axios

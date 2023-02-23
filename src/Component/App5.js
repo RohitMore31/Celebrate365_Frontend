@@ -13,6 +13,7 @@ import Delete from "./navbarpages/Delete";
 import UserProfile from "./profile/UserProfile";
 import AboutUs from "./aboutuspages/AboutUs";
 import Wish from "./Wish/Wish";
+import ForgotPage from "./firstpage/FirstPage";
 
 export default function () {
   return (
@@ -30,6 +31,7 @@ export default function () {
               <Route path="/userprofile" element={<UserProfile />}></Route>
               <Route path="/delete" element={<Delete />}></Route>
               <Route path="/aboutus" element={<AboutUs />}></Route>
+              <Route path="/forgot" element={<ForgotPage/>}></Route>
               <Route path="wishbday" element={<Wish />}></Route>
               <Route path="*" element={<Nomatch />}></Route>
             </Routes>

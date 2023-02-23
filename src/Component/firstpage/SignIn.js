@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import SignUp from './SignUp';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
+import ForgotPage from './ForgotPage';
 
 
 export default function SignIn() {
   // use state hooks
   const [registerBtnSwitch,setRegisterBtnSwitch]=useState(true);
   const [signInStatus,setsignInStatus] =useState(false)
+  const [forgotbtn,setForgotbtn]=useState(true);
 
   let signInStatus2 = useSelector((state)=>state.userInfo.activeStatus)
   let signInStatus3 = useSelector((state)=>state.userInfo.UserInfo)
@@ -59,7 +61,14 @@ export default function SignIn() {
     })
   }
 
+  let forgotbtnhandler =()=>{
+    setForgotbtn(false);
+  }
+  
+
   return (
+<>
+{forgotbtn?   
 <div className='signin'>
   {registerBtnSwitch ?   
   <section className="vh-75" style={{ backgroundColor: "#eee"}}>
@@ -79,7 +88,7 @@ export default function SignIn() {
 
           <div className="row mb-4">
             <div className="col">
-              <a href="#!">Forgot password?</a>
+             <a href="#" onClick={forgotbtnhandler}> Forgot password? </a>
             </div>
           </div>
 
@@ -95,7 +104,8 @@ export default function SignIn() {
     </section>: <>
     <SignUp/>
     </>}    
-  </div> 
+  </div>:<ForgotPage />} 
 
+</>
   )
 }
