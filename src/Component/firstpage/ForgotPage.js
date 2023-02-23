@@ -17,7 +17,7 @@ export default function ForgotPage() {
           }else if(resp.data.Status==="sucess"){
             let x = resp.data;
             setNoticeInfo(true);
-            console.log(x);
+            // console.log(x);
           }
         })
     })
