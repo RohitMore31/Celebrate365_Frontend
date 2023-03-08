@@ -1,3 +1,3 @@
 
-export let ipadd = {ipa:'65.2.161.37'};
+export let ipadd = {ipa:'celebrate365.onrender.com'};
 
