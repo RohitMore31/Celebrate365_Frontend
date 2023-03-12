@@ -433,9 +433,7 @@ hr {
 }
 .wish{
   background-image: url("./images/wish_background.jpg");
-  /* background-position: ; */
   background-size: 100%;
-  /* background-repeat: no-repeat; */
 }
 .wish textarea{
   font-family: 'Shantell Sans', cursive;
