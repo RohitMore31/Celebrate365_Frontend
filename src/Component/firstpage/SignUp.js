@@ -3,17 +3,33 @@ import React from "react";
 import { useState } from "react";
 import { ipadd } from "../ipadd";
 import SignIn from "./SignIn"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUp = () => {
 // use state
-  const [registerStatus, setRegisterStatus] =useState(false);
-  const [registerStatusInfo,setRegisterStatusInfo]=useState("");
+
   const [registerBtnSwitch,setRegisterBtnSwitch]=useState(true);
+  const [formdata,setFormdata]= useState({
+    uname:"",
+    email:"",
+    pass:"",
+    repass:""
+  })
+
+let valueHandler =(e)=>{
+  const{name, value}=e.target    
+        
+  setFormdata({
+      ...formdata,[name]:value
+    })
+  }
+;
 
 // sign up handler  
   let signUpHandler = (e) => {
     e.preventDefault();
-
     let uname =e.target[0].value;
     let email = e.target[1].value;
     let pass = e.target[2].value;
@@ -30,26 +46,34 @@ const SignUp = () => {
 
       axios.post(`http://${ipadd.ipa}:4000/user/signup`, jsonInput).then((resp) => {
       // if Status from server return error then show msg Already exist here we write this code for Duplicate entry error
-      if(resp.data.Status==="error"){
-        
-        setRegisterStatus(true);
-        setRegisterStatusInfo("Already Registerd");
-        // console.log(resp.data.error.code);
+      if(resp.data.Status==="error"){ 
+        notify(" Email is Already Registerd !!!");  
+    
       }else if(resp.data.Status==="sucess"){
-        setRegisterStatus(true);
-        setRegisterStatusInfo("Registration Done sucessfully");
+        notify(" Registration Done sucessfully !!!");  
+        setFormdata({
+          uname:"",
+          email:"",
+          pass:"",
+          repass:""
+        })
       }
       }).catch(error=>{
-          setRegisterStatus(true);
-           setRegisterStatusInfo(error.code);
+        notify(" Server error try later !!!");  
+
       })
+    }else{
+      notify(" Enter Correct password");  
     }
   };
+
+  const notify = (show) => toast(show,{position: "top-center",});
 
 // switch btn from signin to signup
   let switchHandler=()=>{
     setRegisterBtnSwitch(false);
   }
+
 
   return (
   <div className="signup"> 
@@ -70,6 +94,9 @@ const SignUp = () => {
                           <input type="text" name="uname" id="uname"
                             className="form-control"
                             placeholder="Your Name"
+                            required
+                            value={formdata.uname}
+                            onChange={valueHandler}
                           />
                         {/* </div> */}
                       </div>
@@ -77,11 +104,14 @@ const SignUp = () => {
                       {/* <div className="d-flex flex-row align-items-center"> */}
                         <div className="form-outline flex-fill mb-4">
                           <input
+                            value={formdata.email}
+                            onChange={valueHandler}
                             type="email"
                             name="email"
                             id="email"
                             className="form-control"
                             placeholder="Your Email"
+                            required
                           />
                         {/* </div> */}
                       </div>
@@ -94,7 +124,9 @@ const SignUp = () => {
                             id="pass"
                             className="form-control"
                             placeholder="Password"
-                          />
+                            required
+                            value={formdata.pass}
+                            onChange={valueHandler}                          />
                         {/* </div> */}
                       </div>
 
@@ -106,6 +138,9 @@ const SignUp = () => {
                             id="repass"
                             className="form-control"
                             placeholder="Repeat your password"
+                            required
+                            value={formdata.repass}
+                            onChange={valueHandler}
                           />
               
                       </div>
@@ -133,7 +168,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-        {registerStatus? <div><h3>{registerStatusInfo} </h3> </div>:""}
+      <ToastContainer />
     </section>:<SignIn></SignIn>}
   </div>
   );

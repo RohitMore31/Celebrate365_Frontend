@@ -5,21 +5,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import { changeActiveStatus,getUserInfo } from '../../ReduxToolkit/UserInfo/UserDetailSlice'
 import ForgotPage from './ForgotPage';
 import { ipadd } from '../ipadd'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function SignIn() {
   // use state hooks
   const [registerBtnSwitch,setRegisterBtnSwitch]=useState(true);
-  const [signInStatus,setsignInStatus] =useState(false)
+ 
   const [forgotbtn,setForgotbtn]=useState(true);
 
-  let signInStatus2 = useSelector((state)=>state.userInfo.activeStatus)
-  let signInStatus3 = useSelector((state)=>state.userInfo.UserInfo)
-
+ 
   // use dispatch hooks
   const dispatch = useDispatch();
-  let signInErrorHandler = ()=>{
-    setsignInStatus(true);
-  }
 
   let registerBtnHandler = () => {
     setRegisterBtnSwitch(false);
@@ -38,7 +36,7 @@ export default function SignIn() {
      
     axios.post(`http://${ipadd.ipa}:4000/user/signin`,jsonInput).then((resp)=>{
       if(resp.data.Status==="error"){
-          signInErrorHandler();
+          notify("Something Wrong Try Again!!!");
       }else if(resp.data.Status==="sucess"){
         let x = resp.data;
         let obj = {
@@ -52,14 +50,14 @@ export default function SignIn() {
           mobile:x.data[0].mobile,
           address:x.data[0].address
         }
-        // console.log(obj);
-         // setting redux values ito redux store 
+        
         dispatch(getUserInfo(obj));
-        // setting active status into redux store
-        dispatch(changeActiveStatus()); 
+        dispatch(changeActiveStatus(true)); 
       }
     })
   }
+
+  const notify = (show) => toast(show,{position: "top-center"});
 
   let forgotbtnhandler =()=>{
     setForgotbtn(false);
@@ -74,11 +72,11 @@ export default function SignIn() {
   <section className="vh-75" style={{ backgroundColor: "#eee"}}>
     <div className="container h-75">
       <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-       <p className="text-center h1 fw-bold mb-4">SignIn</p>
+       <p className="text-center h1 fw-bold mb-4">Sign in</p>
         <form onSubmit={signInHandler}>
           <div className="form-outline mb-4">
             <input type="email" id="email" name="email" className="form-control" placeholder='Email' required/>
-            {/* <label className="form-label" for="form2Example1">Email address</label> */}
+
           </div>
 
           <div className="form-outline mb-4">
@@ -99,8 +97,9 @@ export default function SignIn() {
           </div> 
         </form>
         </div>  
+        <ToastContainer />
       </div>
-      {signInStatus ? <div>Something Wrong try again</div>:""}
+     
     </section>: <>
     <SignUp/>
     </>}    

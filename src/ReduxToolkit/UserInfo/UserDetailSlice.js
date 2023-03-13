@@ -22,8 +22,8 @@ export const counterSlice = createSlice({
       state.value += 1
     },
   
-    changeActiveStatus:(state)=>{
-        state.activeStatus=true;
+    changeActiveStatus:(state,action)=>{
+        state.activeStatus=action.payload;
     },
 
     getUserInfo:(state,action)=>{

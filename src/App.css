@@ -194,10 +194,13 @@
   font-size: 2vw;
   padding: 2px;
   border-radius: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 .sidebar a:hover {
-  background-color: hsl(12, 85%, 90%);
+  /* background-color: hsl(12, 85%, 90%); */
+  background-color: hsl(10, 84%, 57%);;
   box-shadow: 1vw 1vw 1vw #6b5c75;
 }
 
@@ -451,4 +454,21 @@ hr {
 
 .deletefr{
   background-color: #dce7f7;
+}
+
+/* ====================logoutbtn============================ */
+.logoutbtn{
+  font-family: 'Julee', cursive;
+  border: 2px solid;
+  text-decoration: none;
+  margin: 2vh 0px;
+  font-size: 2vw;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  color: #e7ecf3;
+}
+.logoutbtn:hover {
+  background-color: hsl(10, 84%, 57%);
+  box-shadow: 1vw 1vw 1vw #6b5c75;
 }

@@ -55,12 +55,17 @@ export default function Delete() {
     let jsonInput={
       id:id,
     }
-
-    let memberlist1 = [...memberlist];
-    memberlist1.splice(index, 1);
-    setMemberlist(memberlist1);
-    axios.post(`http://${ipadd.ipa}:4000/deletebyid`,jsonInput).then((response) => {
-    });
+    
+    if (window.confirm("are you want to delete") === true) {
+           let memberlist1 = [...memberlist];
+           memberlist1.splice(index, 1);
+           setMemberlist(memberlist1);
+       axios.post(`http://${ipadd.ipa}:4000/deletebyid`,jsonInput).then((response) => {
+       });
+  } else {
+    console.log( "You canceled!");
+  }
+  
   };
 
   return (
@@ -83,7 +88,7 @@ export default function Delete() {
       {notFound?<>      
       {memberlist!=null?<div className="deleteById">
         <h3>Friend List</h3>
-        <div className="container mt-3">
+        <div className="container fluid">
           <table className="table table-dark table-striped">
             <thead>
               <tr>

@@ -31,11 +31,13 @@ export default function Update(props) {
         // Axios Put
         axios.put(`http://${ipadd.ipa}:4000/updatem`,jsonInput).then((resp)=>{
           })
+        alert("Updation in process it will require time new changes reflected in show click on it")
         statusCheker(false);
     }
 
     // Cancel button handler
     let cancelHandler=()=>{
+
         statusCheker(false);
     }
 

@@ -15,7 +15,7 @@ export default function AboutUs() {
           <div className="card-header">Creator</div>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
-            Welcome to our birthday reminder App, which is designed to 
+            Welcome to our <b>Celebrate365</b> birthday reminder App, which is designed to 
             help people remember important birthdays and plan fun 
             celebrations for their loved ones.
             please don't hesitate to share your feedback and suggestions 
