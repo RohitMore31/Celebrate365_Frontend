@@ -44,7 +44,7 @@ let valueHandler =(e)=>{
     // if pass and repeat pass is same then call axios
     if(pass === repass){
 
-      axios.post(`http://${ipadd.ipa}:4000/user/signup`, jsonInput).then((resp) => {
+      axios.post(`https://${ipadd.ipa}:4000/user/signup`, jsonInput).then((resp) => {
       // if Status from server return error then show msg Already exist here we write this code for Duplicate entry error
       if(resp.data.Status==="error"){ 
         notify(" Email is Already Registerd !!!");  

@@ -12,7 +12,7 @@ export default function ForgotPage() {
           };
         // console.log(jsonInput.email);
         // Using Axios sign in user
-        axios.post(`http://${ipadd.ipa}:4000/forgotpassword`,jsonInput).then((resp)=>{
+        axios.post(`https://${ipadd.ipa}:4000/forgotpassword`,jsonInput).then((resp)=>{
           if(resp.data.Status==="error"){
               alert("Not Found");
           }else if(resp.data.Status==="sucess"){
